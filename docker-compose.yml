@@ -1,0 +1,55 @@
+version: "3.7"
+
+x-mysql: &mysql-default
+  environment:
+    MYSQL_ROOT_PASSWORD: password
+    MYSQL_USER: root
+    MYSQL_PASSWORD: password
+    TZ: "Asia/Tokyo"
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: ./docker/rails/Dockerfile
+    command: bundle exec puma -C config/puma.rb
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+      - /var/tmp
+      - sockets:/app/tmp/sockets
+    tty: true
+    depends_on:
+      - db
+    <<: *mysql-default
+  db:
+    build:
+      context: .
+      dockerfile: ./docker/mysql/Dockerfile
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+    <<: *mysql-default
+  nginx:
+    build:
+      context: .
+      dockerfile: ./docker/nginx/Dockerfile
+    ports:
+      - "80:80"
+    volumes:
+      - sockets:/app/tmp/sockets
+    depends_on:
+      - app
+  terraform:
+    build:
+      context: .
+      dockerfile: docker/terraform/Dockerfile
+    volumes:
+      - ./docker/terraform/src:/root/src
+    env_file: ./.env
+
+volumes:
+  db_data:
+  sockets:
