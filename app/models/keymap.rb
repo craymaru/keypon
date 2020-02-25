@@ -1,0 +1,2 @@
+class Keymap < ApplicationRecord
+end
