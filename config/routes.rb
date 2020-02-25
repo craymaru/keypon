@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
 
-  get 'keymaps/index'
-  get 'keymaps/search'
-  get 'keymaps/show'
-  get 'keymaps/edit'
+  resources :keymaps, only: [:index, :show, :new, :edit, :create, :update, :destroy] do
+    collection do
+      get :search
+    end
+  end
+
   devise_for :users, controllers: {
     registrations: "users/registrations",
     sessions: 'users/sessions'
