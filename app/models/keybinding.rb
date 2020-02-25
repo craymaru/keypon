@@ -1,0 +1,2 @@
+class Keybinding < ApplicationRecord
+end
