@@ -16,9 +16,13 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      - .:/app
+      - .:/app:cached
       - /var/tmp
       - sockets:/app/tmp/sockets
+      #
+      - bundle:/bundle
+      - rails_cache:/app/tmp/cache
+      #
     tty: true
     depends_on:
       - db
@@ -53,3 +57,5 @@ services:
 volumes:
   db_data:
   sockets:
+  bundle:
+  rails_cache:
