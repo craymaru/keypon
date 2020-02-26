@@ -142,6 +142,14 @@ GEM
     pry (0.12.2)
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
+    pry-byebug (3.8.0)
+      byebug (~> 11.0)
+      pry (~> 0.10)
+    pry-doc (1.0.0)
+      pry (~> 0.11)
+      yard (~> 0.9.11)
+    pry-rails (0.3.9)
+      pry (>= 0.10.4)
     public_suffix (4.0.3)
     puma (4.3.1)
       nio4r (~> 2.0)
@@ -186,6 +194,7 @@ GEM
       railties (>= 5.0)
     ruby_dep (1.5.0)
     rubyzip (2.2.0)
+    rufo (0.11.0)
     sass-rails (6.0.0)
       sassc-rails (~> 2.1, >= 2.1.1)
     sassc (2.2.1)
@@ -239,6 +248,7 @@ GEM
     websocket-extensions (0.1.4)
     xpath (3.2.0)
       nokogiri (~> 1.8)
+    yard (0.9.24)
     zeitwerk (2.2.2)
 
 PLATFORMS
@@ -253,8 +263,12 @@ DEPENDENCIES
   jbuilder (~> 2.7)
   listen (>= 3.0.5, < 3.2)
   mysql2 (>= 0.4.4)
+  pry-byebug
+  pry-doc
+  pry-rails
   puma (~> 4.1)
   rails (~> 6.0.2, >= 6.0.2.1)
+  rufo
   sass-rails (>= 6)
   selenium-webdriver
   spring
