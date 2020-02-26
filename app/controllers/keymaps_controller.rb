@@ -18,6 +18,12 @@ class KeymapsController < ApplicationController
   end
 
   def create
+    new_keymap = Keymap.new(new_keymap_params)
+    if new_keymap.save
+      redirect_to keymap_path(new_keymap)
+    else
+      
+    end
   end
 
   def update
@@ -29,7 +35,7 @@ class KeymapsController < ApplicationController
 
   private
 
-  def keymap_params
-    params.require(:keymap).permit(:item_id, :amount)
+  def new_keymap_params
+    params.require(:keymap).permit(:name, :version, :introduction, :status)
   end
 end
