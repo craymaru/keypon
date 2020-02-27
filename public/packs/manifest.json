@@ -1,14 +1,16 @@
 {
-  "application.js": "/packs/js/application-6dfaf5a90d6bc87219a4.js",
-  "application.js.map": "/packs/js/application-6dfaf5a90d6bc87219a4.js.map",
+  "application.js": "/packs/js/application-f741128e01852b999e4f.js",
+  "application.js.map": "/packs/js/application-f741128e01852b999e4f.js.map",
   "entrypoints": {
     "application": {
       "js": [
-        "/packs/js/application-6dfaf5a90d6bc87219a4.js"
+        "/packs/js/application-f741128e01852b999e4f.js"
       ],
       "js.map": [
-        "/packs/js/application-6dfaf5a90d6bc87219a4.js.map"
+        "/packs/js/application-f741128e01852b999e4f.js.map"
       ]
     }
-  }
+  },
+  "media/images/magic_keyboard_spacegray_2000x540.png": "/packs/media/images/magic_keyboard_spacegray_2000x540-9ba9f635714e9354144f143e0b395c77.png",
+  "media/images/magic_keyboard_spacegray_shaded.png": "/packs/media/images/magic_keyboard_spacegray_shaded-cd5c9eeba2c9fe80c6ec6d85d4b809e8.png"
 }

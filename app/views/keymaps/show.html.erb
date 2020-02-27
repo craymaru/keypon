@@ -1,9 +1,110 @@
-<%# DEBUG %>
 <%# KEYMAP / :ID %>
-<div class="row">
-  <div class="col-sm-12"></div>
+<%# TITLE %>
+<div class="row mt-4">
   <h1><%= @keymap.name %></h1>
-  <div class="d-flex align-items-end version-tag"><span class="badge badge-primary"><%= @keymap.version %></span></div>
+  <div class="d-flex align-items-end ml-2 mb-3">
+    <span class="badge badge-primary"><%= @keymap.version %></span>
+  </div>
 </div>
+<%# DATE %>
 <div class="row">
+  <h6 class="ml-1">
+    <span class="mr-2">Update <%= time_ago_in_words(@keymap.updated_at) %></span>
+    <span class="mr-2">Created: <%= @keymap.created_at.strftime("%d %B %Y at %R") %></span>
+  </h6>
+</div>
+<%# TAGS %>
+<div class="row">
+  <div class="d-flex align-items-end ml-1 mb-3"><span class="badge badge-danger">Windows</span></div>
+</div>
+<%# KEYBOARD IMAGE%>
+<div class="row">
+  <div class="keyboard">
+  </div>
+</div>
+<%# SEARCH %>
+<div class="row mt-4">
+  <div class="col-10 offset-1">
+    <%= form_with scope: :search, url: keymap_path do |form| %>
+      <fieldset>
+        <div class="form-group">
+          <%= form.text_field :sarchword, class: "form-control", placeholder: "Search" %>
+        </div>
+      </fieldset>
+    <% end %>
+  </div>
+</div>
+<%# COMMANDS.. %>
+<div class="row mt-2">
+  <div class="col-10 offset-1">
+    <h5>Category</h5>
+    <hr>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col"></th>
+          <th scope="col">Command</th>
+          <th scope="col">Keybinding</th>
+          <th scope="col">When</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="table-active">
+          <th scope="row"><i class="fas fa-star color-star"></i></th>
+          <td>All Select</td>
+          <td>Command + A</td>
+          <td>Everywhere</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>Copy</td>
+          <td>Command + C</td>
+          <td>Everywhere</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>Paste</td>
+          <td>Command + C</td>
+          <td>Everywhere</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<%# ..COMMANDS %>
+<%# IMPUTS.. %>
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#commandImputModal">
+  <i class="far fa-window-maximize"></i>
+  New Keybind
+</button>
+<div class="modal fade bottom show" id="commandImputModal" tabindex="-1" role="dialog" aria-labelledby="commandImputModalLabel" aria-hidden="false">
+  <div class="modal-dialog modal-full-height modal-bottom" role="dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="commandImputModalLabel">New Keybind</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <%= form_with scope: :command, url: keymaps_path do |form| %>
+        <div class="modal-body row">
+          <div class="col-2">
+            <%= form.text_field :category, class: "form-control", placeholder: "Category" %>
+          </div>
+          <div class="col-4">
+            <%= form.text_field :command, class: "form-control", placeholder: "Command Name" %>
+          </div>
+          <div class="col-3">
+            <%= form.text_field :keybinding, class: "form-control", placeholder: "Keybinding" %>
+          </div>
+          <div class="col-3">
+            <%= form.text_field :when, class: "form-control", placeholder: "When" %>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Save</button>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>

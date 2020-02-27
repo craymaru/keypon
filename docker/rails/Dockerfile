@@ -1,5 +1,7 @@
 FROM ruby:2.6.5
 
+ENV DEBCONF_NOWARNINGS yes
+
 RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
 RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
 
@@ -26,6 +28,10 @@ ENV BUNDLE_APP_CONFIG=$BUNDLE_PATH\
 ENV PATH /app/bin:$BUNDLE_BIN:$PATH
 
 WORKDIR /app
+
+COPY package.json .
+COPY yarn.lock .
+RUN yarn upgrade
 
 RUN gem install bundler
 COPY Gemfile .

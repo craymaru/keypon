@@ -1,6 +1,8 @@
 @import "~bootswatch/dist/darkly/variables";
 @import "~bootstrap/scss/bootstrap";
+@import "~@fortawesome/fontawesome-free/scss/fontawesome";
 @import "~bootswatch/dist/darkly/bootswatch";
+// @import '~bootstrap-material-design/scss/bootstrap-material-design';
 
 * {
   font-family: "M PLUS Rounded 1c";
@@ -10,11 +12,65 @@ h1 {
   font-weight: 600;
 }
 
+h6 {
+  font-size: 80%;
+}
+
 .badge {
   font-size: 100%;
 }
 
-.version-tag {
-  margin-left: 0.5em;
-  margin-bottom: 1.1em;
+.keyboard {
+  width: 100%;
+  height: 0;
+  padding-top: 28.3%;
+  background-image: url("../images/magic_keyboard_spacegray_shaded.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+// STAR
+.color-star {
+  color: #ffd900;
+}
+
+
+
+// MODAL BOTTOM
+.modal.fade .modal-dialog .bottom {
+  transition: transform 0.3s ease-out;
+  transform: translate(0, 0px);
+}
+
+.modal .modal-full-height {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 400px;
+  height: auto;
+  min-height: 100%;
+  margin: 0;
+}
+
+.modal .modal-full-height.modal-top,
+.modal .modal-full-height.modal-bottom {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
+
+.modal .modal-full-height.modal-bottom {
+  top: auto;
+  min-height: 0;
+}
+
+.modal .modal-dialog.modal-bottom {
+  bottom: 0;
+  transition: transform 0.3s ease-out;
+  transform: translate(0, 0px);
 }
