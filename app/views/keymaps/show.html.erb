@@ -88,18 +88,18 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <%= form_with scope: :command, url: keymaps_path do |form| %>
+      <%= form_with scope: :command, url: commands_path, local: true do |form| %>
         <div class="modal-body row">
           <div class="form-group">
           </div>
           <div class="col-2">
-            <%= form.text_field :category, class: "form-control", placeholder: "Category" %>
+            <%= form.text_field :category_name, class: "form-control", placeholder: "Category" %>
           </div>
           <div class="col-4">
             <%= form.text_field :name, class: "form-control", placeholder: "Command Name" %>
           </div>
           <div class="col-3">
-            <%= form.text_field :keybinding, class: "form-control", placeholder: "Keybinding" %>
+            <%= form.text_field :keybinding_name, class: "form-control", placeholder: "Keybinding" %>
           </div>
           <div class="col-3">
             <%= form.text_field :when, class: "form-control", placeholder: "When" %>

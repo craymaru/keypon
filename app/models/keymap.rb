@@ -1,6 +1,6 @@
 class Keymap < ApplicationRecord
   # ASSOCIATIONS
-  belongs_to :user
+  # belongs_to :user
   has_many :commands
   has_many :inheritances
   has_many :favorites
