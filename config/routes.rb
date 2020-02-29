@@ -8,6 +8,9 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :commands, only: [:create, :update, :destroy]
+  
+
   devise_for :users, controllers: {
     registrations: "users/registrations",
     sessions: 'users/sessions'
