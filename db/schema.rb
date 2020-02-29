@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_25_151125) do
+ActiveRecord::Schema.define(version: 2020_02_29_062546) do
 
   create_table "commands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.integer "keymap_id"
@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 2020_02_25_151125) do
     t.integer "command_id"
     t.integer "times"
     t.integer "order"
-    t.integer "name"
+    t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -47,6 +47,12 @@ ActiveRecord::Schema.define(version: 2020_02_25_151125) do
     t.integer "status"
     t.datetime "modified_at"
     t.datetime "deleted_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "posts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.string "title"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
