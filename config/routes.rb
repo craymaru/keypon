@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  # TEST
+  root 'keymaps#index'
 
   resources :keymaps, only: [:index, :show, :new, :edit, :create, :update, :destroy] do
     collection do

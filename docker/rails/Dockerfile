@@ -31,15 +31,19 @@ WORKDIR /app
 
 COPY package.json .
 COPY yarn.lock .
-RUN yarn upgrade
+RUN yarn install --check-files
 
 RUN gem install bundler
 COPY Gemfile .
 COPY Gemfile.lock .
 RUN bundle install -j4
 
+
 COPY . /app
 RUN rails webpacker:install
+
+# FOR PRODUCTION ENV
+# RUN rails assets:precompile
 
 EXPOSE 3000
 
