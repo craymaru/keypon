@@ -72,11 +72,13 @@
   </div>
 </div>
 <%# ..COMMANDS %>
-<%# IMPUTS.. %>
+<%# IMPUT MODAL BUTTON.. %>
 <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#commandImputModal">
   <i class="far fa-window-maximize"></i>
   New Keybind
 </button>
+<%# ..IMPUT MODAL BUTTON %>
+<%# IMPUT MODAL.. %>
 <div class="modal fade bottom show" id="commandImputModal" tabindex="-1" role="dialog" aria-labelledby="commandImputModalLabel" aria-hidden="false">
   <div class="modal-dialog modal-full-height modal-bottom" role="dialog">
     <div class="modal-content">
@@ -88,11 +90,13 @@
       </div>
       <%= form_with scope: :command, url: keymaps_path do |form| %>
         <div class="modal-body row">
+          <div class="form-group">
+          </div>
           <div class="col-2">
             <%= form.text_field :category, class: "form-control", placeholder: "Category" %>
           </div>
           <div class="col-4">
-            <%= form.text_field :command, class: "form-control", placeholder: "Command Name" %>
+            <%= form.text_field :name, class: "form-control", placeholder: "Command Name" %>
           </div>
           <div class="col-3">
             <%= form.text_field :keybinding, class: "form-control", placeholder: "Keybinding" %>
@@ -102,9 +106,11 @@
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Save</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cansel</button>
+          <%= form.button 'Submit', type: 'submit', onclick: 'submit()', id: 'customButton', class: "btn btn-primary"%>
         </div>
       <% end %>
     </div>
   </div>
 </div>
+<%# ..IMPUT MODAL %>
