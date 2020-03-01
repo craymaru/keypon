@@ -1,3 +1,4 @@
+<p>1</p>
 <%# KEYMAP / :ID %>
 <%# TITLE %>
 <div class="row mt-4">
@@ -6,6 +7,7 @@
     <span class="badge badge-primary"><%= @keymap.version %></span>
   </div>
 </div>
+<%# ..TITLE %>
 <%# DATE %>
 <div class="row">
   <h6 class="ml-1">
@@ -13,15 +15,18 @@
     <span class="mr-2">Created: <%= @keymap.created_at.strftime("%d %B %Y at %R") %></span>
   </h6>
 </div>
+<%# ..DATE %>
 <%# TAGS %>
 <div class="row">
   <div class="d-flex align-items-end ml-1 mb-3"><span class="badge badge-danger">Windows</span></div>
 </div>
-<%# KEYBOARD IMAGE%>
+<%# ..TAGS %>
+<%# KEYBOARD IMAGE %>
 <div class="row">
   <div class="keyboard">
   </div>
 </div>
+<%# ..KEYBOARD IMAGE %>
 <%# SEARCH %>
 <div class="row mt-4">
   <div class="col-10 offset-1">
@@ -34,51 +39,43 @@
     <% end %>
   </div>
 </div>
-<%# COMMANDS.. %>
+<%# ..SEARCH %>
+<%# COMMANDS %>
 <div class="row mt-2">
   <div class="col-10 offset-1">
-    <h5>Category</h5>
-    <hr>
-    <table class="table table-hover">
-      <thead>
-        <tr>
-          <th scope="col"></th>
-          <th scope="col">Command</th>
-          <th scope="col">Keybinding</th>
-          <th scope="col">When</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr class="table-active">
-          <th scope="row"><i class="fas fa-star color-star"></i></th>
-          <td>All Select</td>
-          <td>Command + A</td>
-          <td>Everywhere</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>Copy</td>
-          <td>Command + C</td>
-          <td>Everywhere</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>Paste</td>
-          <td>Command + C</td>
-          <td>Everywhere</td>
-        </tr>
-      </tbody>
-    </table>
+    <% @categorized_keymap.each do | key, value | %>
+      <h5><%= key %></h5>
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">Command2</th>
+            <th scope="col">Keybinding</th>
+            <th scope="col">When</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% value.each do | command | %>
+            <tr class="table-active">
+              <td scope="row"><i class="fas fa-star color-star"></i></td>
+              <td><%= command.name %></td>
+              <td><%= command.keybindings[0].name %></td>
+              <td><%= command.when %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% end %>
   </div>
 </div>
 <%# ..COMMANDS %>
-<%# IMPUT MODAL BUTTON.. %>
+<%# IMPUT MODAL BUTTON %>
 <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#commandImputModal">
   <i class="far fa-window-maximize"></i>
   New Keybind
 </button>
 <%# ..IMPUT MODAL BUTTON %>
-<%# IMPUT MODAL.. %>
+<%# IMPUT MODAL %>
 <div class="modal fade bottom show" id="commandImputModal" tabindex="-1" role="dialog" aria-labelledby="commandImputModalLabel" aria-hidden="false">
   <div class="modal-dialog modal-full-height modal-bottom" role="dialog">
     <div class="modal-content">

@@ -8,10 +8,10 @@ class KeymapsController < ApplicationController
   def new
     @new_keymap = Keymap.new
   end
-  
 
   def show
     @keymap = Keymap.find(params[:id])
+    @categorized_keymap = @keymap.commands.group_by{ |i| i.category_name }
   end
 
   def edit
@@ -22,7 +22,6 @@ class KeymapsController < ApplicationController
     if new_keymap.save
       redirect_to keymap_path(new_keymap)
     else
-      
     end
   end
 
@@ -31,7 +30,6 @@ class KeymapsController < ApplicationController
 
   def destroy
   end
-
 
   private
 
