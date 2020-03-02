@@ -6,7 +6,10 @@
     <span class="badge badge-primary"><%= @keymap.version %></span>
   </div>
   <div>
-    <%= link_to "E",edit_keymap_path(@keymap) %>
+    <%# TO EDIT %>
+    <%= link_to edit_keymap_path(@keymap) do %>
+      <i class="fas fa-edit"></i>
+    <% end %>
   </div>
 </div>
 <%# ..TITLE %>
@@ -78,7 +81,12 @@
               <td><%= command.name %></td>
               <td><%= command.keybindings[0].name %></td>
               <td><%= command.when %></td>
-              <td><%= link_to "D",command_path(command), method: :delete, remote: true %></td>
+              <td>
+                <%# TO DELETE %>
+                <%= link_to command_path(command), method: :delete, remote: true do %>
+                  <i class="far fa-trash-alt"></i>
+                <% end %>
+              </td>
             </tr>
           <% end %>
         </tbody>
