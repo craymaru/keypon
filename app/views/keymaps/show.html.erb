@@ -27,15 +27,24 @@
   <div class="d-flex align-items-end ml-1 mb-3"><span class="badge badge-danger">Windows</span></div>
 </div>
 <%# ..TAGS %>
-<%# KEYBOARD IMAGE %>
+<%# INTRODUCTION %>
 <div class="row">
-  <div class="keyboard">
+  <div class="card text-white bg-dark mt-2 mb-3" style="width:100%">
+    <div class="card-body">
+      <p class="card-text"><%= @keymap.introduction %></p>
+    </div>
   </div>
 </div>
+<%# ..INTRODUCTION %>
+<%# KEYBOARD IMAGE %>
+<%# <div class="row">
+  <div class="keyboard">
+  </div>
+</div> %>
 <%# ..KEYBOARD IMAGE %>
 <%# SEARCH %>
 <div class="row mt-4">
-  <div class="col-10 offset-1">
+  <div class="col-12">
     <%= form_with scope: :search, url: keymap_path do |form| %>
       <fieldset>
         <div class="form-group">
