@@ -1,4 +1,3 @@
-<p>1</p>
 <%# KEYMAP / :ID %>
 <%# TITLE %>
 <div class="row mt-4">
@@ -16,7 +15,7 @@
   </h6>
 </div>
 <%# ..DATE %>
-<%# TAGS %>
+<%# TAGS %
 <div class="row">
   <div class="d-flex align-items-end ml-1 mb-3"><span class="badge badge-danger">Windows</span></div>
 </div>
@@ -42,25 +41,40 @@
 <%# ..SEARCH %>
 <%# COMMANDS %>
 <div class="row mt-2">
-  <div class="col-10 offset-1">
+  <div class="col-12">
     <% @categorized_keymap.each do | key, value | %>
       <h5><%= key %></h5>
-      <table class="table table-hover">
+      <table class="table table-striped table-hover">
         <thead>
           <tr>
-            <th scope="col"></th>
-            <th scope="col">Command2</th>
-            <th scope="col">Keybinding</th>
-            <th scope="col">When</th>
+            <th scope="col" style="width:5%"></th>
+            <th scope="col" style="width:40%">Command2</th>
+            <th scope="col" style="width:35%">Keybinding</th>
+            <th scope="col" style="width:20%">When</th>
+            <th scope="col" style="width:20%"><%# Bottons %></th>
           </tr>
         </thead>
         <tbody>
           <% value.each do | command | %>
             <tr class="table-active">
-              <td scope="row"><i class="fas fa-star color-star"></i></td>
+              <td>
+                <%# STAR %>
+                <div id="request_ajax_update" >
+                  <% if command.recomend %>
+                    <%= link_to recomend_update_command_path(command), method: :patch, remote: true do %>
+                      <i class="fas fa-star active-star"></i>
+                    <% end %>
+                  <% else %>
+                    <%= link_to recomend_update_command_path(command), method: :patch, remote: true do %>
+                      <i class="fas fa-star inactive-star"></i>
+                    <% end %>
+                  <% end %>
+                </div>
+              </td>
               <td><%= command.name %></td>
               <td><%= command.keybindings[0].name %></td>
               <td><%= command.when %></td>
+              <td><%= link_to "D",command_path(command), method: :delete, remote: true %></td>
             </tr>
           <% end %>
         </tbody>

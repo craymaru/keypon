@@ -31,8 +31,11 @@ h6 {
 }
 
 // STAR
-.color-star {
+.active-star {
   color: #ffd900;
+}
+.inactive-star {
+  color: #4a4a4a;
 }
 
 
@@ -75,6 +78,8 @@ h6 {
   transform: translate(0, 0px);
 }
 
-.test {
-  
+.table th, .table td {
+  // padding: 0.50rem;
+  /* vertical-align: top; */
+  border-top: none
 }

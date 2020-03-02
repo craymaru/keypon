@@ -11,7 +11,7 @@ class KeymapsController < ApplicationController
 
   def show
     @keymap = Keymap.find(params[:id])
-    @categorized_keymap = @keymap.commands.group_by{ |i| i.category_name }
+    @categorized_keymap = @keymap.commands.group_by { |i| i.category_name }
   end
 
   def edit
