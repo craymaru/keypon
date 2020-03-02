@@ -15,17 +15,25 @@ class KeymapsController < ApplicationController
   end
 
   def edit
+    @keymap = Keymap.find(params[:id])
   end
 
   def create
-    new_keymap = Keymap.new(new_keymap_params)
+    new_keymap = Keymap.new(keymap_params)
     if new_keymap.save
       redirect_to keymap_path(new_keymap)
     else
+      render :new
     end
   end
 
   def update
+    edit_keymap = Keymap.find(params[:id])
+    if edit_keymap.update(keymap_params)
+      redirect_to keymap_path(edit_keymap), notice: "You have updated book successfully."
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -33,7 +41,7 @@ class KeymapsController < ApplicationController
 
   private
 
-  def new_keymap_params
+  def keymap_params
     params.require(:keymap).permit(:name, :version, :introduction, :status)
   end
 end

@@ -5,6 +5,9 @@
   <div class="d-flex align-items-end ml-2 mb-3">
     <span class="badge badge-primary"><%= @keymap.version %></span>
   </div>
+  <div>
+    <%= link_to "E",edit_keymap_path(@keymap) %>
+  </div>
 </div>
 <%# ..TITLE %>
 <%# DATE %>
@@ -12,6 +15,7 @@
   <h6 class="ml-1">
     <span class="mr-2">Update <%= time_ago_in_words(@keymap.updated_at) %></span>
     <span class="mr-2">Created: <%= @keymap.created_at.strftime("%d %B %Y at %R") %></span>
+    <span class="mr-2">Published Status: <%= @keymap.status %></span>
   </h6>
 </div>
 <%# ..DATE %>
