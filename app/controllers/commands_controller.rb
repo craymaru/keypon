@@ -4,7 +4,9 @@ class CommandsController < ApplicationController
       keymap = Keymap.find(1)
       new_command = keymap.commands.new(command_params)
       new_command.save!
-      key_bindings = Keybinding.new(command_id: new_command.id, name: keybinding_params)
+      puts "--DEBUG----------------------"
+      puts keybinding_params[:keybinding_name]
+      key_bindings = Keybinding.new(command_id: new_command.id, name: keybinding_params[:keybinding_name])
       key_bindings.save!
     end
 
@@ -15,35 +17,14 @@ class CommandsController < ApplicationController
   def update
   end
 
-  def ajax_update
-    post_text = params[:data][:text]
-    puts "---post_text--------------------------"
-    puts post_text
-    results = { :message => post_text }
-    render partial: "ajax_partial", locals: { :results => results }
-    puts "---res--------------------------"
-    res = render_to_string partial: "ajax_partial", locals: { :results => results }
-    puts res
-  end
-
   def recomend_update
     # STAR
     command = Command.find(params[:id])
-    puts "---params--------------------------"
-    puts params
-    puts "---command.name--------------------------"
-    puts command.name
-    puts "---command.recomended--------------------------"
-    puts command.recomend
-    puts "-----------------------------"
     if command.recomend
       command.recomend = false
     else
       command.recomend = true
     end
-    puts "-----------------------------"
-    puts command.recomend
-    puts "-----------------------------"
     if command.save!
       redirect_to keymap_path(command.keymap)
     else
@@ -52,6 +33,8 @@ class CommandsController < ApplicationController
 
   def destroy
     command = Command.find(params[:id])
+    command.destroy
+    redirect_back(fallback_location: keymap_path(command.keymap))
   end
 
   private
