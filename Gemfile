@@ -62,3 +62,6 @@ gem "tzinfo-data"
 
 # Add: devise
 gem "devise"
+
+# Adds Ransak for search function
+gem "ransack", github: "activerecord-hackery/ransack"

@@ -1,3 +1,15 @@
+GIT
+  remote: https://github.com/activerecord-hackery/ransack.git
+  revision: aee2d97dd4c66d344030f4d41b207015f8c68fd3
+  specs:
+    polyamorous (2.3.2)
+      activerecord (>= 5.2.1)
+    ransack (2.3.2)
+      activerecord (>= 5.2.1)
+      activesupport (>= 5.2.1)
+      i18n
+      polyamorous (= 2.3.2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -270,6 +282,7 @@ DEPENDENCIES
   pry-rails
   puma (~> 4.1)
   rails (~> 6.0.2, >= 6.0.2.1)
+  ransack!
   rufo
   sass-rails (>= 6)
   selenium-webdriver

@@ -13,9 +13,4 @@ class Keymap < ApplicationRecord
          "Private": 1,
          "Draft": 2,
        }
-
-  # SEARCH METHOD
-  def self.search(search)
-    search ? where("name LIKE ?", "%#{search}%") : all
-  end
 end
