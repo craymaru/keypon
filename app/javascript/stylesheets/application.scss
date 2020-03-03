@@ -21,8 +21,32 @@ h6 {
 }
 
 
+
+
 // -------------------------------
-// KEYMAPS
+// KEYMAPS SEACH
+// -------------------------------
+.form-control {
+  width: 100%;
+  padding: 0.375rem 0.75rem;
+  font-size: 150%;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #888;
+  background-color: #353535;
+}
+
+.form-control:focus {
+  color: #eee;
+  background-color: rgb(80, 85, 84);
+  border-color: #222222;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(55, 90, 127, 0.25);
+}
+
+
+// -------------------------------
+// KEYMAPS :ID
 // -------------------------------
 
 // INTRODUCTION
@@ -100,6 +124,4 @@ h6 {
   border-top: none
 }
 
-.test {
-
-}
+.test {}

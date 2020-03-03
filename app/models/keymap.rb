@@ -7,11 +7,15 @@ class Keymap < ApplicationRecord
   has_many :inheritances, class_name: "inheritance", foreign_key: "inheritable_keymap_id", dependent: :destroy
   has_many :inheritances, class_name: "inheritance", foreign_key: "inheritancer_keymap_id", dependent: :destroy
 
-  # ENUM
-  # ENUM STATUS
+  # ENUMS
   enum status: {
          "Public": 0,
          "Private": 1,
          "Draft": 2,
        }
+
+  # SEARCH METHOD
+  def self.search(search)
+    search ? where("name LIKE ?", "%#{search}%") : all
+  end
 end

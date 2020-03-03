@@ -4,6 +4,9 @@ class KeymapsController < ApplicationController
 
   def search
     @keymaps = Keymap.all
+    if params[:search].present?
+      @keymaps = @keymaps.search(params[:search])
+    end
   end
 
   def new

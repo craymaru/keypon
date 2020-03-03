@@ -1,10 +1,11 @@
 <%# SEARCH FORM %>
 <div class="row mt-4">
   <div class="col-12">
-    <%= form_with scope: :search, url: keymaps_path do |form| %>
+    <%= form_with url: search_keymaps_path, method: :get, local: true do |form| %>
       <fieldset>
         <div class="form-group">
-          <%= form.text_field :sarchword, class: "form-control", placeholder: "Search" %>
+          <%= form.text_field :search, class: "form-control", placeholder: "Search" %>
+          <%= form.submit "Search", class: "form-control" %>
         </div>
       </fieldset>
     <% end %>
