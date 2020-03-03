@@ -28,10 +28,10 @@
 </div>
 <%# ..TAGS %>
 <%# INTRODUCTION %>
-<div class="row">
+<div class="row introduction">
   <div class="card text-white bg-dark mt-2 mb-3" style="width:100%">
     <div class="card-body">
-      <p class="card-text"><%= @keymap.introduction %></p>
+      <div class="card-text"><%= simple_format(h(@keymap.introduction)) %></div>
     </div>
   </div>
 </div>
@@ -105,10 +105,16 @@
 </div>
 <%# ..COMMANDS %>
 <%# IMPUT MODAL BUTTON %>
-<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#commandImputModal">
-  <i class="far fa-window-maximize"></i>
-  New Keybind
-</button>
+<div class="row">
+  <div class="col-12 mt-3">
+    <div class="text-center">
+      <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#commandImputModal">
+        <i class="far fa-window-maximize"></i>
+        New Keybind
+      </button>
+    </div>
+  </div>
+</div>
 <%# ..IMPUT MODAL BUTTON %>
 <%# IMPUT MODAL %>
 <div class="modal fade bottom show" id="commandImputModal" tabindex="-1" role="dialog" aria-labelledby="commandImputModalLabel" aria-hidden="false">

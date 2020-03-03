@@ -3,6 +3,7 @@ class KeymapsController < ApplicationController
   end
 
   def search
+    @keymaps = Keymap.all
   end
 
   def new

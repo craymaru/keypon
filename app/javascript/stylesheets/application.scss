@@ -26,8 +26,9 @@ h6 {
 // -------------------------------
 
 // INTRODUCTION
-.introduction {
-  
+.introduction p {
+  margin-top: 0;
+  margin-bottom: 0rem;
 }
 
 // KEYBOARD
@@ -97,4 +98,8 @@ h6 {
   // padding: 0.50rem;
   /* vertical-align: top; */
   border-top: none
+}
+
+.test {
+
 }
