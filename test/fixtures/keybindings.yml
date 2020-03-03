@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  command_id: 1
+  times: 1
+  order: 1
+  name: 1
+
+two:
+  command_id: 1
+  times: 1
+  order: 1
+  name: 1
