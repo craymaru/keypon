@@ -9,20 +9,11 @@ class KeymapsController < ApplicationController
     puts "--------------------------"
 
     if params[:q].present?
-      params[:q][:name_cont_all] = params[:q][:name_cont_all].split(/[[:blank:]]+/)
+      params[:q][:name_or_introduction_cont_all] = params[:q][:name_or_introduction_cont_all].split(/[[:blank:]]+/)
     end
-    
+
     @q = Keymap.ransack(params[:q])
     @keymaps = @q.result(distinct: true)
-
-    # @keymaps = Keymap.all
-
-    # @q = User.ransack(params[:q])
-    # @keymaps = @q.result(distinct: true)
-    puts "--------------------------"
-    puts "params[:q]:"
-    puts params[:q]
-    puts "--------------------------"
   end
 
   def new
@@ -57,6 +48,9 @@ class KeymapsController < ApplicationController
   end
 
   def destroy
+    keymap = Keymap.find(params[:id])
+    keymap.destroy
+    redirect_to search_keymaps_path
   end
 
   private
