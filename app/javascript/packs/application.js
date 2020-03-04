@@ -18,6 +18,7 @@ require("channels");
 import "bootstrap";
 import "@fortawesome/fontawesome-free/js/all";
 import "../stylesheets/application";
+import "../packs/jquery.quicksearch";
 // import "bootstrap-material-design";
 
 const images = require.context("../images/", true);
