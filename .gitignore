@@ -32,3 +32,8 @@ yarn-debug.log*
 
 # Ubuntu log
 /*.log
+
+# Webpacker
+/public/assets
+/public/packs
+/public/packs-test
