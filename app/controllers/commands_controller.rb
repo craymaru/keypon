@@ -4,8 +4,10 @@ class CommandsController < ApplicationController
       keymap = Keymap.find(1)
       new_command = keymap.commands.new(command_params)
       new_command.save!
-      puts "--DEBUG----------------------"
+      puts "--- DEBUG -------------------"
+      puts "keybinding_params[:keybinding_name]:"
       puts keybinding_params[:keybinding_name]
+      puts "-----------------------------"
       key_bindings = Keybinding.new(command_id: new_command.id, name: keybinding_params[:keybinding_name])
       key_bindings.save!
     end
