@@ -2,6 +2,7 @@
 @import "~bootstrap/scss/bootstrap";
 @import "~@fortawesome/fontawesome-free/scss/fontawesome";
 @import "~bootswatch/dist/darkly/bootswatch";
+@import "~bootstrap-tagsinput/dist/bootstrap-tagsinput";
 // @import '~bootstrap-material-design/scss/bootstrap-material-design';
 
 
@@ -23,8 +24,29 @@ h6 {
 
 .badge {
   font-size: 100%;
+  padding: 0.3em 0.45em;
 }
 
+
+// -------------------------------
+// BOOTSTRAP-TAGS-INPUT
+// -------------------------------
+.bootstrap-tagsinput {
+  background-color: #353535;
+  border: 1px solid #ccc;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  display: inline-block;
+  padding: 4px 6px;
+  color: #555;
+  vertical-align: middle;
+  border-radius: 4px;
+  max-width: 100%;
+  line-height: 22px;
+  cursor: text;
+  width: 100%;
+  padding: 0.75rem 0.75rem;
+  border-color: #222222;
+}
 
 // -------------------------------
 // KEYMAPS SEACH
