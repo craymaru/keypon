@@ -9,7 +9,7 @@ class KeymapsController < ApplicationController
     puts "--------------------------"
 
     if params[:q].present?
-      params[:q][:name_or_introduction_cont_all] = params[:q][:name_or_introduction_cont_all].split(/[[:blank:]]+/)
+      params[:q][:name_or_introduction_or_tags_name_cont_all] = params[:q][:name_or_introduction_or_tags_name_cont_all].split(/[[:blank:]]+/)
     end
 
     @q = Keymap.ransack(params[:q])
