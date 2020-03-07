@@ -40,13 +40,13 @@
               <div class="col-md-3">
                 <span title="virtualbox">
                   <span class="label label-inline label-outline">
-                    tags
+                    <%= keymap.tag_list %>
                   </span>
                   <span>
                   </span></span></div>
               <div class="col-md-2">
                 <div>
-                  Downloads
+                  Views
                 </div>
                 <div>
                   <strong>
@@ -60,7 +60,7 @@
                 </div>
                 <div>
                   <strong>
-                    4 months ago
+                    <%= time_ago_in_words(keymap.updated_at) %> ago
                   </strong>
                 </div>
               </div>

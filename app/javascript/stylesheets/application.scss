@@ -22,10 +22,15 @@ h6 {
   font-size: 80%;
 }
 
+// -------------------------------
+// BOOTSTRAP / BOOTSWATCH
+// -------------------------------
+
 .badge {
   font-size: 100%;
   padding: 0.3em 0.45em;
 }
+
 
 
 // -------------------------------
@@ -46,6 +51,33 @@ h6 {
   width: 100%;
   padding: 0.75rem 0.75rem;
   border-color: #222222;
+}
+
+// 
+// 
+// 
+
+.list-group-item {
+  position: relative;
+  display: block;
+  padding: 10px 15px;
+  margin-bottom: -1px;
+  // background-color: #fff;
+  // border: 1px solid #ddd;
+}
+
+a.list-group-item,
+button.list-group-item {
+  color: #93969b;
+}
+
+a.list-group-item:hover,
+a.list-group-item:focus,
+button.list-group-item:hover,
+button.list-group-item:focus {
+  color: #ffffff;
+  text-decoration: none;
+  background-color: #203e9a;
 }
 
 // -------------------------------
@@ -69,6 +101,10 @@ h6 {
   box-shadow: 0 0 0 0.2rem rgba(55, 90, 127, 0.25);
 }
 
+.media-left,
+.media>.pull-left {
+  padding-right: 10px;
+}
 
 // -------------------------------
 // KEYMAPS :ID
