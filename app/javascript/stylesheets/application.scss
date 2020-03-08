@@ -9,7 +9,6 @@
 // -------------------------------
 // GLOBAL
 // -------------------------------
-
 * {
   font-family: "M PLUS Rounded 1c";
 }
@@ -25,14 +24,10 @@ h6 {
 // -------------------------------
 // BOOTSTRAP / BOOTSWATCH
 // -------------------------------
-
-
 .badge {
   font-size: 100%;
   padding: 0.3em 0.45em;
 }
-
-
 
 
 // -------------------------------
@@ -55,10 +50,58 @@ h6 {
   border-color: #222222;
 }
 
-// 
-// 
-// 
+// -------------------------------
+// HEADER
+// -------------------------------
+.navbar {
+  padding: 0rem;
+}
 
+.logo {
+  width: 10rem;
+  height: 2.5rem;
+  background-image: url("../images/logo_keypon_f4.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.logo_area {
+  width: 12rem;
+  height: 4rem;
+  background-color: rgb(40, 40, 45);
+}
+
+.logo_area:hover,
+.logo_area:focus {
+  background-color: #2d3345;
+}
+
+// -------------------------------
+// KEYMAPS SEACH FORM
+// -------------------------------
+.form-control {
+  width: 100%;
+  padding: 0.375rem 0.75rem;
+  font-size: 150%;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #888;
+  background-color: #353535;
+}
+
+.form-control:focus {
+  color: #eee;
+  background-color: rgb(80, 85, 84);
+  border-color: #222222;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(55, 90, 127, 0.25);
+}
+
+
+// -------------------------------
+// KEYMAPS SEARCH LIST
+// -------------------------------
 .list-group-item {
   position: relative;
   display: block;
@@ -79,34 +122,14 @@ button.list-group-item:hover,
 button.list-group-item:focus {
   color: #ffffff;
   text-decoration: none;
-  background-color: #203e9a;
-}
-
-// -------------------------------
-// KEYMAPS SEACH
-// -------------------------------
-.form-control {
-  width: 100%;
-  padding: 0.375rem 0.75rem;
-  font-size: 150%;
-  font-weight: 400;
-  line-height: 1.5;
-  color: #888;
-  background-color: #353535;
-}
-
-.form-control:focus {
-  color: #eee;
-  background-color: rgb(80, 85, 84);
-  border-color: #222222;
-  outline: 0;
-  box-shadow: 0 0 0 0.2rem rgba(55, 90, 127, 0.25);
+  background-color: #2d3345;
 }
 
 .media-left,
 .media>.pull-left {
   padding-right: 10px;
 }
+
 
 // -------------------------------
 // KEYMAPS :ID
