@@ -1,4 +1,7 @@
 class Keymap < ApplicationRecord
+  # acts-as-taggable-on
+  acts_as_taggable
+
   # ASSOCIATIONS
   # belongs_to :user
   has_many :commands, dependent: :destroy

@@ -7,6 +7,9 @@ environment.plugins.prepend(
   new webpack.ProvidePlugin({
     $: "jquery",
     jQuery: "jquery",
+    jquery: "jquery",
+    "window.jQuery": "jquery",
+    // "jQuery.tagsinput": "bootstrap-tagsinput",
     Popper: "popper.js"
   })
 );

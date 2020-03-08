@@ -2,13 +2,13 @@
 @import "~bootstrap/scss/bootstrap";
 @import "~@fortawesome/fontawesome-free/scss/fontawesome";
 @import "~bootswatch/dist/darkly/bootswatch";
+@import "~bootstrap-tagsinput/dist/bootstrap-tagsinput";
 // @import '~bootstrap-material-design/scss/bootstrap-material-design';
 
 
 // -------------------------------
 // GLOBAL
 // -------------------------------
-
 * {
   font-family: "M PLUS Rounded 1c";
 }
@@ -21,13 +21,64 @@ h6 {
   font-size: 80%;
 }
 
+// -------------------------------
+// BOOTSTRAP / BOOTSWATCH
+// -------------------------------
 .badge {
   font-size: 100%;
+  padding: 0.3em 0.45em;
 }
 
 
 // -------------------------------
-// KEYMAPS SEACH
+// BOOTSTRAP-TAGS-INPUT
+// -------------------------------
+.bootstrap-tagsinput {
+  background-color: #353535;
+  border: 1px solid #ccc;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  display: inline-block;
+  padding: 4px 6px;
+  color: #555;
+  vertical-align: middle;
+  border-radius: 4px;
+  max-width: 100%;
+  line-height: 22px;
+  cursor: text;
+  width: 100%;
+  padding: 0.75rem 0.75rem;
+  border-color: #222222;
+}
+
+// -------------------------------
+// HEADER
+// -------------------------------
+.navbar {
+  padding: 0rem;
+}
+
+.logo {
+  width: 10rem;
+  height: 2.5rem;
+  background-image: url("../images/logo_keypon_f4.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.logo_area {
+  width: 12rem;
+  height: 4rem;
+  background-color: rgb(40, 40, 45);
+}
+
+.logo_area:hover,
+.logo_area:focus {
+  background-color: #2d3345;
+}
+
+// -------------------------------
+// KEYMAPS SEACH FORM
 // -------------------------------
 .form-control {
   width: 100%;
@@ -45,6 +96,38 @@ h6 {
   border-color: #222222;
   outline: 0;
   box-shadow: 0 0 0 0.2rem rgba(55, 90, 127, 0.25);
+}
+
+
+// -------------------------------
+// KEYMAPS SEARCH LIST
+// -------------------------------
+.list-group-item {
+  position: relative;
+  display: block;
+  padding: 10px 15px;
+  margin-bottom: -1px;
+  // background-color: #fff;
+  // border: 1px solid #ddd;
+}
+
+a.list-group-item,
+button.list-group-item {
+  color: #93969b;
+}
+
+a.list-group-item:hover,
+a.list-group-item:focus,
+button.list-group-item:hover,
+button.list-group-item:focus {
+  color: #ffffff;
+  text-decoration: none;
+  background-color: #2d3345;
+}
+
+.media-left,
+.media>.pull-left {
+  padding-right: 10px;
 }
 
 

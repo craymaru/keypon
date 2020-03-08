@@ -60,8 +60,11 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data"
 
-# Add: devise
+# Adds devise
 gem "devise"
 
 # Adds Ransak for search function
 gem "ransack", github: "activerecord-hackery/ransack"
+
+# Adds acts-as-taggable-on for tag function
+gem "acts-as-taggable-on", "~> 6.0"

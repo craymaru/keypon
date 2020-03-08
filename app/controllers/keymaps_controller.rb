@@ -3,16 +3,22 @@ class KeymapsController < ApplicationController
   end
 
   def search
-    puts "--------------------------"
+    puts "-- DEBUG -----------------"
     puts "params[:q]:"
-    puts params[:q]
+    puts params
     puts "--------------------------"
 
+    # SPLIT BY SPACES
     if params[:q].present?
-      params[:q][:name_or_introduction_cont_all] = params[:q][:name_or_introduction_cont_all].split(/[[:blank:]]+/)
+      keywords = params[:q][:name_or_introduction_or_tags_name_cont_all].split(/\p{blank}/)
     end
 
-    @q = Keymap.ransack(params[:q])
+    puts "-- DEBUG -----------------"
+    puts "keywords:"
+    puts keywords
+    puts "--------------------------"
+
+    @q = Keymap.ransack(name_or_introduction_or_tags_name_cont_all: keywords)
     @keymaps = @q.result(distinct: true)
   end
 
@@ -56,7 +62,7 @@ class KeymapsController < ApplicationController
   private
 
   def keymap_params
-    params.require(:keymap).permit(:name, :version, :introduction, :status)
+    params.require(:keymap).permit(:name, :version, :introduction, :status, :tag_list)
   end
 
   def search_params

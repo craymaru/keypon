@@ -4,7 +4,7 @@
     <%= search_form_for @q, url: search_keymaps_path, local: true do |f| %>
       <fieldset class="col-12">
         <div class="form-group form-inline">
-          <%= f.search_field :name_or_introduction_cont_all, class: "form-control col", placeholder: "Search" %>
+          <%= f.search_field :name_or_introduction_or_tags_name_cont_all, class: "form-control col", placeholder: "Search" %>
           <%= button_tag :submit, class: "form-control", style: "width:60px" do %>
             <i class="fa fa-search"></i>
           <% end %>
@@ -40,13 +40,13 @@
               <div class="col-md-3">
                 <span title="virtualbox">
                   <span class="label label-inline label-outline">
-                    tags
+                    <%= keymap.tag_list %>
                   </span>
                   <span>
                   </span></span></div>
               <div class="col-md-2">
                 <div>
-                  Downloads
+                  Views
                 </div>
                 <div>
                   <strong>
@@ -60,7 +60,7 @@
                 </div>
                 <div>
                   <strong>
-                    4 months ago
+                    <%= time_ago_in_words(keymap.updated_at) %> ago
                   </strong>
                 </div>
               </div>

@@ -7,6 +7,8 @@ require("@rails/ujs").start();
 require("turbolinks").start();
 require("@rails/activestorage").start();
 require("channels");
+require("bootstrap-tagsinput");
+require("typeahead.js");
 
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
@@ -15,12 +17,17 @@ require("channels");
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
 
+// Bootstrap4
 import "bootstrap";
-import "@fortawesome/fontawesome-free/js/all";
 import "../stylesheets/application";
+
+// Font Awesome
+import "@fortawesome/fontawesome-free/js/all";
+
 // Quicksearch
 import "../packs/jquery.quicksearch.js";
 import "../packs/search_command.by_quicksearch.js";
+
 // import "bootstrap-material-design";
 
 const images = require.context("../images/", true);
