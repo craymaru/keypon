@@ -1,4 +1,4 @@
-<div align="center"><img src="https://i.imgur.com/7lkQS6B.png" width="400"/></div>
+<div align="center"><img src="https://i.imgur.com/cOKwldl.png" width="600"/></div>
 
 > Saving keybindings, keep on with you!
 
