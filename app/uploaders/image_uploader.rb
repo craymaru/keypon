@@ -1,12 +1,13 @@
 require "image_processing/mini_magick"
 
 class ImageUploader < Shrine
-  plugin :processing # allows hooking into promoting
-  plugin :versions   # enable Shrine to handle a hash of files
-  plugin :delete_raw # delete processed files after uploading
+  plugin :processing
+  plugin :versions
+  plugin :delete_raw
+  plugin :validation_helpers
 
   process(:store) do |io, context|
-    versions = { original: io } # retain original
+    versions = { original: io }
 
     io.download do |original|
       pipeline = ImageProcessing::MiniMagick.source(original)
@@ -16,6 +17,12 @@ class ImageUploader < Shrine
       versions[:small] = pipeline.resize_to_limit!(300, 300)
     end
 
-    versions # return the hash of processed files
+    versions
+  end
+
+  # VARIDATES
+  Attacher.validate do
+    validate_max_size 5 * 1024 * 1024, message: "Images larger than 5MB cannot be uploaded."
+    validate_mime_type_inclusion %w(image/jpeg image/png)
   end
 end
