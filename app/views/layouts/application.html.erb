@@ -18,16 +18,11 @@
             </div>
           </div>
         <% end %>
-        <%# IS_SIGNIN? %>
-        <div>
-          user_signed_in?:
-          <%= user_signed_in? %>
-        </div>
         <%# COLLAPSE BUTTON %>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <%# L BUTTONS %>
+        <%# L MENU %>
         <div class="collapse navbar-collapse" id="navbarColor02">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
@@ -37,7 +32,7 @@
               <a class="nav-link" href="#">Left2</a>
             </li>
           </ul>
-          <%# R BUTTONS %>
+          <%# R MENU %>
           <% if user_signed_in? %>
             <ul class="navbar-nav">
               <li class="nav-item active">
@@ -46,16 +41,18 @@
               <li class="nav-item">
                 <a class="nav-link" href="#">＋</a>
               </li>
-              <li class="nav-item">
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-                  <div class="dropdown-menu dropdown-menu-right" style="">
-                    <a class="dropdown-item" href="#">My Page</a>
-                    <%= link_to "User Settings", settings_users_path, class: "dropdown-item" %>
-                    <div class="dropdown-divider"></div>
-                    <%= link_to "Sign out", destroy_user_session_path, class: "dropdown-item", method: :delete %>
-                  </div>
-                </li>
+            </ul>
+            <ul class="navbar-nav">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                  <%= image_tag current_user.image[:small].url, class: "border border-dark rounded user-image-sm", fallback: "no_image.jpg" %>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" style="">
+                  <a class="dropdown-item" href="#">My Page</a>
+                  <%= link_to "User Settings", settings_users_path, class: "dropdown-item" %>
+                  <div class="dropdown-divider"></div>
+                  <%= link_to "Sign out", destroy_user_session_path, class: "dropdown-item", method: :delete %>
+                </div>
               </li>
             </ul>
           <% else %>

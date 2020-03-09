@@ -227,8 +227,16 @@ button.list-group-item:focus {
 // -------------------------------
 // KEYMAPS SEARCH LIST
 // -------------------------------
-.user-image {
+.user-image-lg {
   width: 8rem;
   height: 7.75rem;
   object-fit: cover;
+}
+
+.user-image-sm {
+  width: 3rem;
+  height: 3rem;
+  object-fit: cover;
+}
+.dropdown-toggle::after {
 }
