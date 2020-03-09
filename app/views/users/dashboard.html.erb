@@ -1,0 +1,45 @@
+<div class="row mt-3">
+  <h3>Dashboard</h3>
+</div>
+<div class="row">
+  <%# USER INFO %>
+  <div class="card border-secondary mb-3" style="width:100%">
+    <div class="card-body row">
+      <div class="col-3">
+        <%= image_tag @user.image[:small].url, class: "border border-dark rounded user-image-lg", fallback: "no_image.jpg" %>
+      </div>
+      <div class="col-9">
+        <%= link_to "User Settings", settings_path, class:"btn btn-secondary float-right" %>
+        <h4>
+          <span><%= @user.name %></span>
+          <span style="font-size:70%;color:darkgray">@<%= @user.username %></span>
+        </h4>
+        <h6><span class="mr-2"><%= time_ago_in_words(@user.created_at) %> ago</span></h6>
+        <p><%= @user.biography %></p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row mt-3">
+  <h3>My Keymaps</h3>
+</div>
+<div class="row mt-2 mb-4">
+  <% if @user.keymaps.where(status: "Draft").present? %>
+    <h4 class="text-warning mt-3">Draft</h4>
+    <div class="col-12">
+      <%= render 'Keymaps/keymap_list', keymaps: @user.keymaps.where(status: "Draft") %>
+    </div>
+  <% end %>
+  <% if @user.keymaps.where(status: "Pubric").present? %>
+    <h4 class="text-success mt-3">Pubric</h4>
+    <div class="col-12">
+      <%= render 'Keymaps/keymap_list', keymaps: @user.keymaps.where(status: "Pubric") %>
+    </div>
+  <% end %>
+  <% if @user.keymaps.where(status: "Private").present? %>
+    <h4 class="text-muted mt-3">Private</h4>
+    <div class="col-12">
+      <%= render 'Keymaps/keymap_list', keymaps: @user.keymaps.where(status: "Private") %>
+    </div>
+  <% end %>
+</div>

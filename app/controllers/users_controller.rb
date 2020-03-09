@@ -6,11 +6,21 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  def settings
+  def dashboard
+    # REDIRECT
     if current_user.blank?
       redirect_to root_path
     end
-    # もしユーザーがログインしていなければリダイレクト
+
+    @user = current_user
+  end
+
+  def settings
+    # REDIRECT
+    if current_user.blank?
+      redirect_to root_path
+    end
+
     @user = current_user
   end
 
@@ -21,7 +31,7 @@ class UsersController < ApplicationController
     edit_user = User.find(current_user.id)
 
     if edit_user.update(user_params)
-      redirect_to settings_users_path(), notice: "Update Sucsess!"
+      redirect_back(fallback_location: dashboard_path, notice: "Sucsess!")
     else
       @user = current_user
       render :settings

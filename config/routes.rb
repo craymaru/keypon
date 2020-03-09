@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   # ROOT
   root "keymaps#search"
+  get "dashboard", :to => "users#dashboard"
   get "settings", :to => "users#settings"
   get "keymaps", :to => "keymaps#search"
 
@@ -18,6 +19,7 @@ Rails.application.routes.draw do
   # USERS
   resources :users, only: [:index, :show, :update, :destroy] do
     collection do
+      get :dashboard
       get :settings
     end
   end
