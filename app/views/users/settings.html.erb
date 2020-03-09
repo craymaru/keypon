@@ -13,7 +13,8 @@
       <div class="card-body row">
         <div class="col-3">
           <%= f.label :image_data, "Profile Image" %>
-          <%= attachment_image_tag user, :image_data, :fill, 60, 60, format: 'jpeg', class: "img-circle pull-left profile-img", fallback: "no_image.jpg" %>
+          <img src= "<%= f.image_url %>">　#この行が画像を表示する所！！！
+          <%# <%= attachment_image_tag user, :image_data, :fill, 60, 60, format: 'jpeg', class: "img-circle pull-left profile-img", fallback: "no_image.jpg" %> %>
         </div>
         <div class="col-9">
           <h6>Upload Form</h6>
