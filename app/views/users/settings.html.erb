@@ -1,17 +1,9 @@
-<%# DEBUG %>
-<%= @user %>
-<%= user_signed_in? %>
-<%= @user.email %>
-<%#  %>
 <div class="row mt-3">
   <h3>User Settings</h3>
 </div>
 <%= form_with scope: :user, url: user_path(@user), method: :put do |f| %>
   <div class="row mt-3">
     <%#  %>
-    <%= f.label :image_data %>
-    <%= f.hidden_field :image, value: current_user.cached_image_data %>
-    <%= f.file_field :image %>
     <%# attachment_image_tag @user, :user_image, :fill, 400, 300, format: 'jpeg', class: "attachment item image" %>
     <%# f.attachment_field :user_image, placeholder: "Item Image", class: "item-image-form" %>
     <%#  %>
@@ -20,15 +12,17 @@
       <div class="card-header">Profile Image</div>
       <div class="card-body row">
         <div class="col-3">
-          Profile Image○
+          <%= f.label :image_data, "Profile Image" %>
+          <%= attachment_image_tag user, :image_data, :fill, 60, 60, format: 'jpeg', class: "img-circle pull-left profile-img", fallback: "no_image.jpg" %>
         </div>
         <div class="col-9">
           <h6>Upload Form</h6>
           <div class="form-group">
             <div class="input-group mb-3">
               <div class="custom-file">
-                <input type="file" class="custom-file-input" id="inputGroupFile02">
-                <label class="custom-file-label" for="inputGroupFile02">Choose file</label>
+                <%= f.hidden_field :image, value: current_user.cached_image_data %>
+                <%= f.file_field :image, type: "file", class:"custom-file-input", id:"inputGroupFile" %>
+                <label class="custom-file-label" for="inputGroupFile">Choose file</label>
               </div>
               <div class="input-group-append">
                 <span class="input-group-text" id="">Upload</span>

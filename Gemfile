@@ -71,3 +71,5 @@ gem "acts-as-taggable-on", "~> 6.0"
 
 # Adds shrine for image upload function
 gem 'shrine'
+gem 'image_processing'
+gem 'mini_magick'
