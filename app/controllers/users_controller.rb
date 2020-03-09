@@ -6,5 +6,8 @@ class UsersController < ApplicationController
   end
 
   def settings
+    # もしユーザーがログインしていなければリダイレクト
+    
+    @user = current_user
   end
 end
