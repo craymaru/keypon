@@ -8,17 +8,26 @@
     <link href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c" rel="stylesheet">
   </head>
   <body>
+    <%# HEADER %>
     <header class="sticky-top">
       <nav class="navbar navbar-expand navbar-dark bg-dark">
+        <%# LOGO %>
         <%= link_to search_keymaps_path do %>
           <div class="logo_area d-flex align-items-center">
             <div class="logo mx-auto">
             </div>
           </div>
         <% end %>
+        <%# IS_SIGNIN? %>
+        <div>
+          user_signed_in?:
+          <%= user_signed_in? %>
+        </div>
+        <%# COLLAPSE BUTTON %>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
+        <%# L BUTTONS %>
         <div class="collapse navbar-collapse" id="navbarColor02">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
@@ -28,6 +37,7 @@
               <a class="nav-link" href="#">Left2</a>
             </li>
           </ul>
+          <%# R BUTTONS %>
           <ul class="navbar-nav">
             <li class="nav-item active">
               <a class="nav-link" href="#">Right1 <span class="sr-only">(current)</span></a>
@@ -35,15 +45,24 @@
             <li class="nav-item">
               <a class="nav-link" href="#">Right2</a>
             </li>
+            <li class="nav-item">
+              <%= link_to search_keymaps_path do %>
+                <div>
+                ユーザー機能
+                </div>
+              <% end %>
+            </li>
           </ul>
         </div>
       </nav>
     </header>
+    <%# MAIN %>
     <main>
       <div class="container">
         <%= yield %>
       </div>
     </main>
+    <%# FOOTER %>
     <footer>
     </footer>
   </body>
