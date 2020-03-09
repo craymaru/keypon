@@ -1,2 +1,24 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class="row mt-3">
+  <h3>User Info</h3>
+</div>
+<div class="row mt-3">
+  <%# USER INFO %>
+  <div class="card border-secondary mb-3" style="width:100%">
+    <div class="card-body row">
+      <div class="col-3">
+        <%= image_tag @user.image[:small].url, class: "border border-dark rounded user-image-lg", fallback: "no_image.jpg" %>
+      </div>
+      <div class="col-9">
+        <h4>
+          <span><%= @user.name %></span>
+          <span style="font-size:70%;color:darkgray">@<%= @user.username %></span>
+        </h4>
+        <h6><span class="mr-2"><%= time_ago_in_words(@user.created_at) %> ago</span></h6>
+        <p><%= @user.biography %></p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row mt-3">
+  <h3>Keymaps</h3>
+</div>

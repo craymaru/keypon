@@ -1,12 +1,14 @@
 Rails.application.routes.draw do
   # ROOT
   root "keymaps#search"
+  get "settings", :to => "users#settings"
+  get "keymaps", :to => "keymaps#search"
 
   # DEVICES
   devise_for :users, controllers: {
-    registrations: "users/registrations",
-    sessions: "users/sessions",
-  }
+                       registrations: "users/registrations",
+                       sessions: "users/sessions",
+                     }
 
   devise_scope :user do
     get "sign_in", :to => "users/sessions#new"
