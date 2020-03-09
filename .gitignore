@@ -37,3 +37,6 @@ yarn-debug.log*
 /public/assets
 /public/packs
 /public/packs-test
+
+# Shrine
+/public/uploads

@@ -1,7 +1,7 @@
 <div class="row mt-4">
   <div class="col-sm-12">
     <h1>Edit Keymap</h1>
-    <%= form_with scope: :keymap, url: keymap_path(@keymap), method: :put do |f| %>
+    <%= form_with scope: :keymap, url: keymap_path(@keymap), method: :put, local: true do |f| %>
       <fieldset>
         <%#  %>
         <div class="form-group">
@@ -24,7 +24,7 @@
         </div>
         <div class="form-group">
           <%= f.label :introduction, "Introduction" %>
-          <%= f.text_area :introduction, class: "form-control", placeholder: "Enter keynmap introduction" %>
+          <%= f.text_area :introduction, class: "form-control", rows: "3", placeholder: "Enter keynmap introduction" %>
         </div>
         <fieldset class="form-group">
           <legend>Status</legend>

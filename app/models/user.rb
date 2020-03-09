@@ -1,4 +1,7 @@
 class User < ApplicationRecord
+  # IMAGE UPLOADER
+  include ImageUploader[:image]
+
   # ASSOCIATIONS
   # has_many :keymaps
   # has_many :favorites

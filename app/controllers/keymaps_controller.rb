@@ -47,7 +47,7 @@ class KeymapsController < ApplicationController
   def update
     edit_keymap = Keymap.find(params[:id])
     if edit_keymap.update(keymap_params)
-      redirect_to keymap_path(edit_keymap), notice: "You have updated book successfully."
+      redirect_to keymap_path(edit_keymap), notice: "Update Sucsess!"
     else
       render :edit
     end

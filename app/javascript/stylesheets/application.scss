@@ -13,12 +13,24 @@
   font-family: "M PLUS Rounded 1c";
 }
 
-h1 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-weight: 600;
 }
 
 h6 {
   font-size: 80%;
+}
+
+.table th,
+.table td {
+  // padding: 0.50rem;
+  /* vertical-align: top; */
+  border-top: none
 }
 
 // -------------------------------
@@ -83,7 +95,7 @@ h6 {
 .form-control {
   width: 100%;
   padding: 0.375rem 0.75rem;
-  font-size: 150%;
+  font-size: 100%;
   font-weight: 400;
   line-height: 1.5;
   color: #888;
@@ -96,6 +108,10 @@ h6 {
   border-color: #222222;
   outline: 0;
   box-shadow: 0 0 0 0.2rem rgba(55, 90, 127, 0.25);
+}
+
+.form-search {
+  font-size: 150%;
 }
 
 
@@ -203,11 +219,16 @@ button.list-group-item:focus {
   transform: translate(0, 0px);
 }
 
-.table th,
-.table td {
-  // padding: 0.50rem;
-  /* vertical-align: top; */
-  border-top: none
-}
 
-.test {}
+
+
+
+
+// -------------------------------
+// KEYMAPS SEARCH LIST
+// -------------------------------
+.user-image {
+  width: 8rem;
+  height: 7.75rem;
+  object-fit: cover;
+}

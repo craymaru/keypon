@@ -68,3 +68,8 @@ gem "ransack", github: "activerecord-hackery/ransack"
 
 # Adds acts-as-taggable-on for tag function
 gem "acts-as-taggable-on", "~> 6.0"
+
+# Adds shrine for image upload function
+gem 'shrine'
+gem 'image_processing'
+gem 'mini_magick'
