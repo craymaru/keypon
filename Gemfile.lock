@@ -89,6 +89,7 @@ GEM
     childprocess (3.0.0)
     coderay (1.1.2)
     concurrent-ruby (1.1.6)
+    content_disposition (1.0.0)
     crass (1.0.6)
     devise (4.7.1)
       bcrypt (~> 3.0)
@@ -96,6 +97,8 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    down (5.1.1)
+      addressable (~> 2.5)
     em-websocket (0.5.1)
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0.6.0)
@@ -223,6 +226,9 @@ GEM
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
     shellany (0.0.1)
+    shrine (3.2.1)
+      content_disposition (~> 1.0)
+      down (~> 5.1)
     spring (2.1.0)
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
@@ -289,6 +295,7 @@ DEPENDENCIES
   rufo
   sass-rails (>= 6)
   selenium-webdriver
+  shrine
   spring
   spring-watcher-listen (~> 2.0.0)
   turbolinks (~> 5)
