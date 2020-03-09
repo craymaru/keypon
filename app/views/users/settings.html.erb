@@ -17,9 +17,8 @@
           <% end %>
         </div>
         <div class="col-9">
-          <h6>Upload Form</h6>
           <div class="form-group">
-            <div class="input-group mb-3">
+            <div class="input-group">
               <div class="custom-file">
                 <%= f.hidden_field :image, value: current_user.cached_image_data %>
                 <%= f.file_field :image, type: "file", class:"custom-file-input", id:"inputGroupFile" %>
@@ -29,6 +28,7 @@
                 <%= f.button 'Upload', type: 'submit', onclick: 'submit()', id: 'customButton', class: "input-group-text"%>
               </div>
             </div>
+            <small id="imageHelp" class="form-text text-muted">The maximum file size of an image is 5MB.</small>
           </div>
         </div>
       </div>
