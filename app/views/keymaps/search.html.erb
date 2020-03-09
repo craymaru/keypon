@@ -14,7 +14,6 @@
   </div>
 </div>
 <%#  %>
-<%#  %>
 <%# KEYMAP LIST %>
 <div class="row">
   <div class="col-12">
@@ -22,7 +21,8 @@
       <%= link_to keymap_path(keymap), class: "list-group-item" do %>
         <li class="media">
           <div class="media-left hidden-xs">
-            <img class="gravatar" alt="ubuntu/trusty64" src="https://www.gravatar.com/avatar/1e8d3d421d018a7d812b3968bb4a3a6b?s=64&amp;d=mm">
+            <img class="gravatar" src="">
+            <%= image_tag keymap.users.image[:small].url, class: "border border-dark rounded user-image-lg", fallback: "no_image.jpg" %>
           </div>
           <div class="media-body">
             <div class="row">

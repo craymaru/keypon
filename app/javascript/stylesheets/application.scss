@@ -129,7 +129,7 @@ h6 {
 
 a.list-group-item,
 button.list-group-item {
-  color: #93969b;
+  color: #cacbcd;
 }
 
 a.list-group-item:hover,
@@ -238,5 +238,5 @@ button.list-group-item:focus {
   height: 3rem;
   object-fit: cover;
 }
-.dropdown-toggle::after {
-}
+
+.dropdown-toggle::after {}
