@@ -1,0 +1,52 @@
+<% keymaps.each do |keymap| %>
+  <%= link_to keymap_path(keymap), class: "list-group-item" do %>
+    <li class="media">
+      <div class="media-left hidden-xs">
+        <img class="gravatar" src="">
+        <%= image_tag keymap.user.image[:small].url, class: "border border-dark rounded user-image-md", fallback: "no_image.jpg" %>
+      </div>
+      <div class="media-body">
+        <div class="row">
+          <div class="col-md-5">
+            <h4>
+              <%= keymap.name %>
+              <small>
+                <%= keymap.version %>
+              </small>
+            </h4>
+            <div>
+              <%= keymap.introduction %>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <span title="virtualbox">
+              <span class="label label-inline label-outline">
+                <%= keymap.tag_list %>
+              </span>
+              <span>
+              </span></span></div>
+          <div class="col-md-2">
+            <div>
+              Views
+            </div>
+            <div>
+              <strong>
+                30,481,807
+              </strong>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div>
+              Released
+            </div>
+            <div>
+              <strong>
+                <%= time_ago_in_words(keymap.updated_at) %> ago
+              </strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </li>
+  <% end %>
+<% end%>
