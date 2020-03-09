@@ -14,60 +14,9 @@
   </div>
 </div>
 <%#  %>
-<%#  %>
 <%# KEYMAP LIST %>
-<div class="row">
+<div class="row mt-2">
   <div class="col-12">
-    <% @keymaps.each do |keymap| %>
-      <%= link_to keymap_path(keymap), class: "list-group-item" do %>
-        <li class="media">
-          <div class="media-left hidden-xs">
-            <img class="gravatar" alt="ubuntu/trusty64" src="https://www.gravatar.com/avatar/1e8d3d421d018a7d812b3968bb4a3a6b?s=64&amp;d=mm">
-          </div>
-          <div class="media-body">
-            <div class="row">
-              <div class="col-md-5">
-                <h4>
-                  <%= keymap.name %>
-                  <small>
-                    <%= keymap.version %>
-                  </small>
-                </h4>
-                <div>
-                  <%= keymap.introduction %>
-                </div>
-              </div>
-              <div class="col-md-3">
-                <span title="virtualbox">
-                  <span class="label label-inline label-outline">
-                    <%= keymap.tag_list %>
-                  </span>
-                  <span>
-                  </span></span></div>
-              <div class="col-md-2">
-                <div>
-                  Views
-                </div>
-                <div>
-                  <strong>
-                    30,481,807
-                  </strong>
-                </div>
-              </div>
-              <div class="col-md-2">
-                <div>
-                  Released
-                </div>
-                <div>
-                  <strong>
-                    <%= time_ago_in_words(keymap.updated_at) %> ago
-                  </strong>
-                </div>
-              </div>
-            </div>
-          </div>
-        </li>
-      <% end %>
-    <% end%>
+    <%= render 'Keymaps/keymap_list', keymaps: @keymaps %>
   </div>
 </div>

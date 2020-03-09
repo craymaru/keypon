@@ -19,7 +19,7 @@ class KeymapsController < ApplicationController
     puts "--------------------------"
 
     @q = Keymap.ransack(name_or_introduction_or_tags_name_cont_all: keywords)
-    @keymaps = @q.result(distinct: true)
+    @keymaps = @q.result(distinct: true).where(status: "Pubric")
   end
 
   def new
