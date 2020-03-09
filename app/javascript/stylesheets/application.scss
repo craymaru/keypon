@@ -13,12 +13,24 @@
   font-family: "M PLUS Rounded 1c";
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-weight: 600;
 }
 
 h6 {
   font-size: 80%;
+}
+
+.table th,
+.table td {
+  // padding: 0.50rem;
+  /* vertical-align: top; */
+  border-top: none
 }
 
 // -------------------------------
@@ -207,11 +219,16 @@ button.list-group-item:focus {
   transform: translate(0, 0px);
 }
 
-.table th,
-.table td {
-  // padding: 0.50rem;
-  /* vertical-align: top; */
-  border-top: none
-}
 
-.test {}
+
+
+
+
+// -------------------------------
+// KEYMAPS SEARCH LIST
+// -------------------------------
+.user-image {
+  width: 8rem;
+  height: 7.75rem;
+  object-fit: cover;
+}

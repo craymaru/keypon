@@ -1,20 +1,20 @@
 <div class="row mt-3">
   <h3>User Settings</h3>
 </div>
-<%= form_with scope: :user, url: user_path(@user), method: :put do |f| %>
-  <div class="row mt-3">
-    <%#  %>
-    <%# attachment_image_tag @user, :user_image, :fill, 400, 300, format: 'jpeg', class: "attachment item image" %>
-    <%# f.attachment_field :user_image, placeholder: "Item Image", class: "item-image-form" %>
-    <%#  %>
-    <%# # PROFILE IMAFE %>
-    <div class="card border-secondary mb-3" style="width:100%">
-      <div class="card-header">Profile Image</div>
+<div class="row mt-3">
+  <%#  %>
+  <%# attachment_image_tag @user, :user_image, :fill, 400, 300, format: 'jpeg', class: "attachment item image" %>
+  <%# f.attachment_field :user_image, placeholder: "Item Image", class: "item-image-form" %>
+  <%#  %>
+  <%# # PROFILE IMAFE %>
+  <div class="card border-secondary mb-3" style="width:100%">
+    <div class="card-header">Profile Image</div>
+    <%= form_with scope: :user, url: user_path(@user), method: :put do |f| %>
       <div class="card-body row">
         <div class="col-3">
-          <%= f.label :image_data, "Profile Image" %>
-          <img src= "<%= f.image_url %>">　#この行が画像を表示する所！！！
-          <%# <%= attachment_image_tag user, :image_data, :fill, 60, 60, format: 'jpeg', class: "img-circle pull-left profile-img", fallback: "no_image.jpg" %> %>
+          <%= image_tag @user.image[:small].url, class: "border border-dark rounded user-image", fallback: "no_image.jpg" %>
+          <% if @user.cached_image_data.present? %>
+          <% end %>
         </div>
         <div class="col-9">
           <h6>Upload Form</h6>
@@ -26,15 +26,17 @@
                 <label class="custom-file-label" for="inputGroupFile">Choose file</label>
               </div>
               <div class="input-group-append">
-                <span class="input-group-text" id="">Upload</span>
+                <%= f.button 'Upload', type: 'submit', onclick: 'submit()', id: 'customButton', class: "input-group-text"%>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-    <%# SETTINGS %>
-    <div class="card border-secondary mb-3" style="width:100%">
+    <% end %>
+  </div>
+  <%# SETTINGS %>
+  <div class="card border-secondary mb-3" style="width:100%">
+    <%= form_with scope: :user, url: user_path(@user), method: :put do |f| %>
       <div class="card-header">Profile Settings</div>
       <div class="card-body row">
         <div class="col-3">
@@ -92,7 +94,9 @@
           </div>
         </div>
       </div>
-    </div>
+      <div class="card-footer text-muted text-right">
+        <%= f.button 'Update Changes', type: 'submit', onclick: 'submit()', id: 'customButton', class: "btn btn-primary"%>
+      </div>
+    <% end %>
   </div>
-  <%= f.button 'Update Changes', type: 'submit', onclick: 'submit()', id: 'customButton', class: "btn btn-primary"%>
-<% end %>
+</div>
