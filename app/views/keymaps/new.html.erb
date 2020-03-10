@@ -2,6 +2,9 @@
 <div class="row mt-4">
   <div class="col-sm-12">
     <h2>New Keymap</h2>
+    <%# ERRORS %>
+    <%= render 'Keymaps/errors', keymap: @keymap %>
+    <%# FORMS %>
     <%= form_with scope: :keymap, url: keymaps_path, method: :post, local: true do |f| %>
       <fieldset>
         <%= render 'Keymaps/form_keymap', f: f %>
