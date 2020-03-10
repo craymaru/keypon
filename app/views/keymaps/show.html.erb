@@ -1,9 +1,25 @@
-<%# KEYMAP / :ID %>
-<%# TITLES %>
 <div class="row mt-4">
-  <h1><%= @keymap.name %></h1>
+  <%# USER INFO %>
+  <div class="card border-secondary">
+    <div class="card-body keymap-show row">
+      <div class="ml-3">
+        <%= image_tag @keymap.user.image[:small].url, class: "border border-dark rounded user-image-sm", fallback: "no_image.jpg" %>
+      </div>
+      <div class="col">
+        <h5>
+          <span><%= @keymap.user.name %></span>
+        </h5>
+      </div>
+    </div>
+  </div>
+</div>
+<%# TITLES %>
+<div class="row mt-3">
+  <h2><%= @keymap.name %></h2>
+  <%# VERSION %>
   <div class="d-flex align-items-end ml-2 mb-3 mr-2">
-    <span class="badge badge-primary"><%= @keymap.version %></span>
+    <span class="badge badge-primary mr-2"><%= @keymap.version %></span>
+    <span class="badge badge-dark"><%= @keymap.status %></span>
   </div>
   <div>
     <%# LINK TO EDIT %>
@@ -17,12 +33,11 @@
   <h6 class="ml-1">
     <span class="mr-2"><%= time_ago_in_words(@keymap.updated_at) %> ago</span>
     <span class="mr-2">Created: <%= @keymap.created_at.strftime("%d %B %Y at %R") %></span>
-    <span class="mr-2">Published Status: <%= @keymap.status %></span>
   </h6>
 </div>
 <%# TAGS % %>
 <div class="row">
-  <div class="d-flex align-items-end ml-1 mb-3">
+  <div class="d-flex align-items-end ml-1">
     <%= render 'Keymaps/tag_list', tag_list: @keymap.tag_list %>
   </div>
 </div>
