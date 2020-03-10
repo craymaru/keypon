@@ -2,9 +2,9 @@ class Keybinding < ApplicationRecord
   # ASSOCIATIONS
   belongs_to :command
 
-  # VARIDATES
-  varidates :command_id, presence: true
-  varidates :name,
+  # VALIDATES
+  validates :command_id, presence: true
+  validates :name,
             presence: true,
             length: { minimum: 1, maximum: 16 }
   validates :times, length: { maximum: 4 }

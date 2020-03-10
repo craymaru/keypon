@@ -44,6 +44,7 @@ class KeymapsController < ApplicationController
     if @keymap.save
       redirect_to keymap_path(@keymap), success: "Successfully Created!"
     else
+      flash[:danger] = "Save Error!"
       render :new
     end
   end
@@ -53,6 +54,7 @@ class KeymapsController < ApplicationController
     if @keymap.update(keymap_params)
       redirect_to keymap_path(@keymap), success: "Successfully Updated!"
     else
+      flash[:danger] = "Save Error!"
       render :edit
     end
   end
@@ -64,10 +66,6 @@ class KeymapsController < ApplicationController
   end
 
   private
-
-  def keymap_without_tag_params
-    params.require(:keymap).permit(:name, :version, :introduction, :status)
-  end
 
   def keymap_params
     params.require(:keymap).permit(:name, :version, :introduction, :status, :tag_list)

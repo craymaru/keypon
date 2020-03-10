@@ -20,7 +20,7 @@ class ImageUploader < Shrine
     versions
   end
 
-  # VARIDATES
+  # VALIDATES
   Attacher.validate do
     validate_max_size 5 * 1024 * 1024, message: "Images larger than 5MB cannot be uploaded."
     validate_mime_type_inclusion %w(image/jpeg image/png)

@@ -17,7 +17,7 @@ class Keymap < ApplicationRecord
          "Draft": 2,
        }
 
-  # VARIDATES
+  # VALIDATES
   validates :user_id, presence: true
   validates :name,
             presence: true,

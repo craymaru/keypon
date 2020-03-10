@@ -1,15 +1,14 @@
 class CommandsController < ApplicationController
   def create
     ActiveRecord::Base.transaction do
-      keymap = Keymap.find(1)
-      new_command = keymap.commands.new(command_params)
-      new_command.save!
-      puts "--- DEBUG -------------------"
-      puts "keybinding_params[:keybinding_name]:"
-      puts keybinding_params[:keybinding_name]
-      puts "-----------------------------"
-      key_bindings = Keybinding.new(command_id: new_command.id, name: keybinding_params[:keybinding_name])
-      key_bindings.save!
+      keymap = Keymap.find(params[:keymap_id])
+      @command = keymap.commands.new(command_params)
+      if @command.save!
+        key_bindings = Keybinding.new(command_id: @command.id, name: keybinding_params[:keybinding_name])
+        if key_bindings.save!
+          flash[:success] = "Command Saved!"
+        end
+      end
     end
 
     # render status: :ok, json: {}

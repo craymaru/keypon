@@ -133,7 +133,7 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <%= form_with scope: :command, url: commands_path, local: true do |form| %>
+      <%= form_with scope: :command, url: commands_path(keymap_id: @keymap.id), local: true do |form| %>
         <div class="modal-body row">
           <div class="form-group">
           </div>
