@@ -113,6 +113,21 @@
     </header>
     <%# MAIN %>
     <main>
+      <%# FLASH MESSAGE %>
+      <% if flash[:notice] %>
+        <div class="row">
+          <p class="text-success">
+            <%= flash[:notice]%>
+          </p>
+        </div>
+      <% elsif flash[:alert] %>
+        <div class="row">
+          <p class="text-danger">
+            <%= flash[:alert]%>
+          </p>
+        </div>
+      <% end %>
+      <%# CONTENTS %>
       <div class="container">
         <%= yield %>
       </div>
