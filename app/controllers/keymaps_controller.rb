@@ -68,7 +68,7 @@ class KeymapsController < ApplicationController
   private
 
   def keymap_params
-    params.require(:keymap).permit(:name, :version, :introduction, :status, :tag_list)
+    params.require(:keymap).permit(:name, :version, :introduction, :status, :tag_list, :content)
   end
 
   def search_params
