@@ -42,7 +42,7 @@ class KeymapsController < ApplicationController
     puts keymap_params
     puts "--------------------------"
     if @keymap.save
-      redirect_to keymap_path(@keymap), notice: "Sucsess!"
+      redirect_to keymap_path(@keymap), success: "Successfully Created!"
     else
       render :new
     end
@@ -51,7 +51,7 @@ class KeymapsController < ApplicationController
   def update
     @keymap = Keymap.find(params[:id])
     if @keymap.update(keymap_params)
-      redirect_to keymap_path(@keymap), notice: "Sucsess!"
+      redirect_to keymap_path(@keymap), success: "Successfully Updated!"
     else
       render :edit
     end

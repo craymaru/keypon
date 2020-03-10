@@ -90,6 +90,32 @@ h6 {
 }
 
 // -------------------------------
+// FLASHES
+// -------------------------------
+.alert {
+  position: absolute;
+  z-index: 99;
+  opacity: 0.85;
+  height: auto;
+  width: auto;
+  left: 0;
+  right: 0;
+  margin: 1em;
+}
+.alert-success {
+  background-color: #105d5d;
+}
+.alert {
+  border: none;
+  color: #fff;
+  font-weight: 600;
+  font-size: 120%;
+}
+.text-center {
+  text-align: center !important;
+}
+
+// -------------------------------
 // KEYMAPS SEACH FORM
 // -------------------------------
 .form-control {

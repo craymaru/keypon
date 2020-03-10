@@ -28,10 +28,10 @@ class UsersController < ApplicationController
     puts "-----------------------"
     puts user_params
     puts "-----------------------"
-    edit_user = User.find(current_user.id)
+    @user = User.find(current_user.id)
 
-    if edit_user.update(user_params)
-      redirect_back(fallback_location: dashboard_path, notice: "Sucsess!")
+    if @user.update(user_params)
+      redirect_back(fallback_location: dashboard_path, success: "Successfully Updated!")
     else
       @user = current_user
       render :settings

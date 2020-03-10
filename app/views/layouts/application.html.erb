@@ -112,21 +112,11 @@
       </nav>
     </header>
     <%# MAIN %>
-    <main>
+    <div class="row">
       <%# FLASH MESSAGE %>
-      <% if flash[:notice] %>
-        <div class="row">
-          <p class="text-success">
-            <%= flash[:notice]%>
-          </p>
-        </div>
-      <% elsif flash[:alert] %>
-        <div class="row">
-          <p class="text-danger">
-            <%= flash[:alert]%>
-          </p>
-        </div>
-      <% end %>
+      <%= render partial: "layouts/flashes", flash: flash %>
+    </div>
+    <main>
       <%# CONTENTS %>
       <div class="container">
         <%= yield %>
