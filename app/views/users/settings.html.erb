@@ -8,7 +8,7 @@
     <%= form_with scope: :user, url: user_path(@user), method: :put do |f| %>
       <div class="card-body row">
         <div class="col-3">
-          <%= image_tag @user.image[:small].url, class: "border border-dark rounded user-image-lg", fallback: "no_image.jpg" %>
+          <%= image_tag (@user.image_url(:small) || "#{asset_pack_path 'media/images/blank.png'}"), class: "border border-dark rounded user-image-lg", fallback: "no_image.jpg" %>
           <% if @user.cached_image_data.present? %>
           <% end %>
         </div>

@@ -83,7 +83,7 @@
             <ul class="navbar-nav">
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                  <%= image_tag current_user.image[:small].url, class: "border border-dark rounded user-image-sm", fallback: "no_image.jpg" %>
+                  <%= image_tag (current_user.image_url(:small) || "#{asset_pack_path 'media/images/blank.png'}"), class: "border border-dark rounded user-image-sm"%>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" style="">
                   <%# □ USER - DASHBOARD %>

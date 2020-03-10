@@ -3,7 +3,7 @@
     <li class="media">
       <div class="media-left hidden-xs">
         <img class="gravatar" src="">
-        <%= image_tag keymap.user.image[:small].url, class: "border border-dark rounded user-image-md", fallback: "no_image.jpg" %>
+        <%= image_tag (keymap.user.image_url(:small) || "#{asset_pack_path 'media/images/blank.png'}"), class: "border border-dark rounded user-image-md", fallback: "no_image.jpg" %>
       </div>
       <div class="media-body">
         <div class="row">
