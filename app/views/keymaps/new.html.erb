@@ -1,7 +1,7 @@
 <%# KEYMAPS / NEW %>
-<div class="row">
+<div class="row mt-4">
   <div class="col-sm-12">
-    <h1>New Keymap</h1>
+    <h2>New Keymap</h2>
     <%= form_with scope: :keymap, url: keymaps_path, method: :post, local: true do |f| %>
       <fieldset>
         <%= render 'Keymaps/edit_keymap', f: f %>

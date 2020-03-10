@@ -38,25 +38,43 @@
           </ul>
           <%# R MENU %>
           <% if user_signed_in? %>
+            <%# + EDIT KEYMAP - MENU %>
+            <ul class="navbar-nav">
+              <% if is_active_controller_and_action?("keymaps", "show").present? %>
+                <% if is_owner = current_user.id == Keymap.find(params[:id]).user.id %>
+                  <li class="nav-item">
+                    <%= link_to edit_keymap_path(@keymap), class: "nav-link" do %>
+                      <i class="fas fa-edit fa-lg"></i>
+                    <% end %>
+                  </li>
+                <% end %>
+              <% end %>
+            </ul>
             <%# + NEW KEYMAP - MENU %>
             <ul class="navbar-nav">
-            <%# DROPDOWN MENU %>
+              <%# + NEW KEYMAP - DROPDOWN MENU %>
               <% if is_active_controller_and_action?("keymaps", "new").present? %>
+                <%# + NEW KEYMAP - NEW %>
               <% elsif is_active_controller_and_action?("keymaps", "show").present? %>
+                <%# + NEW KEYMAP - KEYMAP %>
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                    <i class="fas fa-plus"></i>
+                    <i class="fas fa-pen fa-lg"></i>
                   </a>
                   <div class="dropdown-menu dropdown-menu-right" style="">
-                    <%= link_to "Create New Keymap", new_keymap_path, class: "dropdown-item" %>
-                    <%= link_to "Create New Keymap (Inharit) ", destroy_user_session_path, class: "dropdown-item", method: :delete %>
+                    <%= link_to new_keymap_path, class: "dropdown-item nav-link" do %>
+                      <i class="fas fa-plus" style="margin: 0 0.4rem "></i><span>Create New Keymap</span>
+                    <% end %>
+                    <%= link_to new_keymap_path, class: "dropdown-item nav-link" do %>
+                      <i class="fas fa-plus" style="margin: 0 0.4rem "></i><span>Create New Keymap (Inharit)</span>
+                    <% end %>
                   </div>
                 </li>
               <% else %>
-              <%# NEW KEYMAP - COMMON %>
+                <%# + NEW KEYMAP - COMMON %>
                 <li class="nav-item">
                   <%= link_to new_keymap_path, class: "nav-link" do %>
-                    <i class="fas fa-plus"ew></i>
+                    <i class="fas fa-pen fa-lg"></i>
                   <% end %>
                 </li>
               <% end %>
@@ -68,17 +86,19 @@
                   <%= image_tag current_user.image[:small].url, class: "border border-dark rounded user-image-sm", fallback: "no_image.jpg" %>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" style="">
-                  <%# DASHBOARD - LINK WITH ICON %>
+                  <%# □ USER - DASHBOARD %>
                   <%= link_to dashboard_path, class: "dropdown-item nav-link" do %>
                     <i class="fa fa-home" style="margin: 0 0.35rem "></i><span>Dashboard</span>
                   <% end %>
-                  <%# USER SETTINGS - LINK WITH ICON %>
+                  <%# □ USER - USER SETTINGS %>
                   <%= link_to settings_path, class: "dropdown-item nav-link" do %>
                     <i class="fa fa-cog" style="margin: 0 0.405rem "></i><span>User Settings</span>
                   <% end %>
-                  <%# SIGN OUT - LINK %>
+                  <%# □ USER - SIGN OUT %>
                   <div class="dropdown-divider"></div>
-                  <%= link_to "Sign out", destroy_user_session_path, class: "dropdown-item", method: :delete %>
+                  <%= link_to destroy_user_session_path, class: "dropdown-item nav-link" do %>
+                    <i class="fas fa-sign-out-alt" style="margin: 0 0.405rem "></i><span>Sign out</span>
+                  <% end %>
                 </div>
               </li>
             </ul>
