@@ -23,7 +23,7 @@ class KeymapsController < ApplicationController
   end
 
   def new
-    @new_keymap = Keymap.new
+    @keymap = Keymap.new
   end
 
   def show
@@ -36,30 +36,38 @@ class KeymapsController < ApplicationController
   end
 
   def create
-    new_keymap = Keymap.new(keymap_params)
-    if new_keymap.save
-      redirect_to keymap_path(new_keymap)
+    @keymap = current_user.keymaps.new(keymap_params)
+    puts "-- DEBUG -----------------"
+    puts "params[:q]:"
+    puts keymap_params
+    puts "--------------------------"
+    if @keymap.save
+      redirect_to keymap_path(@keymap), notice: "Sucsess!"
     else
       render :new
     end
   end
 
   def update
-    edit_keymap = Keymap.find(params[:id])
-    if edit_keymap.update(keymap_params)
-      redirect_to keymap_path(edit_keymap), notice: "Update Sucsess!"
+    @keymap = Keymap.find(params[:id])
+    if @keymap.update(keymap_params)
+      redirect_to keymap_path(@keymap), notice: "Sucsess!"
     else
       render :edit
     end
   end
 
   def destroy
-    keymap = Keymap.find(params[:id])
-    keymap.destroy
+    @keymap = Keymap.find(params[:id])
+    @keymap.destroy
     redirect_to search_keymaps_path
   end
 
   private
+
+  def keymap_without_tag_params
+    params.require(:keymap).permit(:name, :version, :introduction, :status)
+  end
 
   def keymap_params
     params.require(:keymap).permit(:name, :version, :introduction, :status, :tag_list)
