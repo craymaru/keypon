@@ -4,7 +4,7 @@
     <h2>New Keymap</h2>
     <%= form_with scope: :keymap, url: keymaps_path, method: :post, local: true do |f| %>
       <fieldset>
-        <%= render 'Keymaps/edit_keymap', f: f %>
+        <%= render 'Keymaps/form_keymap', f: f %>
         <%= f.button 'Submit', type: 'submit', onclick: 'submit()', id: 'customButton', class: "btn btn-primary"%>
       </fieldset>
     <% end %>

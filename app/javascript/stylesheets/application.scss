@@ -62,6 +62,18 @@ h6 {
   border-color: #222222;
 }
 
+.bootstrap-tagsinput input {
+  border: none;
+  box-shadow: none;
+  outline: none;
+  background-color: transparent;
+  padding: 0 6px;
+  margin: 0;
+  width: 10em;
+  max-width: inherit;
+  color: snow;
+}
+
 // -------------------------------
 // HEADER
 // -------------------------------
@@ -102,15 +114,18 @@ h6 {
   right: 0;
   margin: 1em;
 }
+
 .alert-success {
   background-color: #105d5d;
 }
+
 .alert {
   border: none;
   color: #fff;
   font-weight: 600;
   font-size: 120%;
 }
+
 .text-center {
   text-align: center !important;
 }

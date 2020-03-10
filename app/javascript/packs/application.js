@@ -31,9 +31,13 @@ import "../packs/fade_flashes.js";
 import "../packs/jquery.quicksearch.js";
 import "../packs/search_command.by_quicksearch.js";
 
+
+
 // Action Text
 require("trix")
 require("@rails/actiontext")
+
+import "../stylesheets/actiontext"
 
 
 // import "bootstrap-material-design";
