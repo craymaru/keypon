@@ -1,4 +1,7 @@
 class Keymap < ApplicationRecord
+  # Rich Text
+  has_rich_text :content
+
   # acts-as-taggable-on
   acts_as_taggable
 
