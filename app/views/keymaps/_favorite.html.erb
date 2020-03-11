@@ -1,4 +1,7 @@
-<% if keymap.favorite_by?(current_user) %>
+<% if not user_signed_in? %>
+  <i class="fas fa-heart active-heart fa-lg"></i>
+  <span class="ml-1 active-heart"><%= keymap.favorites.count %></span>
+<% elsif keymap.favorite_by?(current_user) %>
   <%= link_to keymap_favorites_path(keymap), method: :delete, id: :"js-favorite-button-for-keymap-#{keymap.id}" do %>
     <i class="fas fa-heart active-heart fa-lg"></i>
   <% end %>
