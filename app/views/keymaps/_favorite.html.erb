@@ -2,8 +2,10 @@
   <%= link_to keymap_favorites_path(keymap), method: :delete, id: :"js-favorite-button-for-keymap-#{keymap.id}" do %>
     <i class="fas fa-heart active-heart fa-lg"></i>
   <% end %>
+  <span class="ml-1 active-heart"><%= keymap.favorites.count %></span>
 <% else %>
   <%= link_to keymap_favorites_path(keymap), method: :post, id: :"js-favorite-button-for-keymap-#{keymap.id}" do %>
     <i class="fas fa-heart inactive-heart fa-lg"></i>
   <% end %>
+  <span class="ml-1 inactive-heart"><%= keymap.favorites.count %></span>
 <% end %>
