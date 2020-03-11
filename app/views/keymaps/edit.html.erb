@@ -6,7 +6,7 @@
     <%# FORMS %>
     <%= form_with scope: :keymap, url: keymap_path(@keymap), method: :put, local: true do |f| %>
       <fieldset>
-        <%= render 'Keymaps/form_keymap', f: f %>
+        <%= render 'keymaps/form', f: f %>
         <%= f.button 'Save Changes', type: 'submit', onclick: 'submit()', id: 'customButton', class: "btn btn-primary"%>
       </fieldset>
     <% end %>

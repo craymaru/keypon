@@ -2,7 +2,6 @@ class KeymapsController < ApplicationController
   # PV COUNT BY IMPRESSIONIST
   impressionist :actions => [:show]
 
-
   def index
   end
 
@@ -51,7 +50,7 @@ class KeymapsController < ApplicationController
     puts "params[:q]:"
     puts keymap_params
     puts "--------------------------"
-    if @keymap.save
+    if @keymap.save!
       redirect_to keymap_path(@keymap), success: "Successfully Created!"
     else
       flash[:danger] = "Save Error!"
@@ -61,7 +60,7 @@ class KeymapsController < ApplicationController
 
   def update
     @keymap = Keymap.find(params[:id])
-    if @keymap.update(keymap_params)
+    if @keymap.update!(keymap_params)
       redirect_to keymap_path(@keymap), success: "Successfully Updated!"
     else
       flash[:danger] = "Save Error!"
@@ -73,6 +72,10 @@ class KeymapsController < ApplicationController
     @keymap = Keymap.find(params[:id])
     @keymap.destroy
     redirect_to search_keymaps_path
+  end
+
+  def favorites
+    @keymaps = current_user.favorite_keymaps.includes(:user).recent
   end
 
   private

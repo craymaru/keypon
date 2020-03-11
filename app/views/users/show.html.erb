@@ -24,6 +24,6 @@
 </div>
 <div class="row mt-2">
   <div class="col-12">
-    <%= render 'Keymaps/keymap_list', keymaps: @user.keymaps.where(status: "Pubric") %>
+    <%= render 'keymaps/keymaps', keymaps: @user.keymaps.where(status: "Pubric") %>
   </div>
 </div>

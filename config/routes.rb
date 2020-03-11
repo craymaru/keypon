@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'favorites/create'
+  get 'favorites/destroy'
   # ROOT
   root "keymaps#search"
   get "dashboard", :to => "users#dashboard"
@@ -7,9 +9,9 @@ Rails.application.routes.draw do
 
   # DEVICES
   devise_for :users, controllers: {
-    registrations: "users/registrations",
-    sessions: "users/sessions",
-  }
+                       registrations: "users/registrations",
+                       sessions: "users/sessions",
+                     }
 
   devise_scope :user do
     get "sign_in", :to => "users/sessions#new"
@@ -17,22 +19,24 @@ Rails.application.routes.draw do
   end
 
   # USERS
-  resources :users, only: [:index, :show, :update, :destroy] do
+  resources :users, only: %i[index show update destroy] do
     collection do
       get :dashboard
       get :settings
     end
   end
-  
+
   # KEYMAPS
-  resources :keymaps, only: [:index, :show, :new, :edit, :create, :update, :destroy] do
+  resources :keymaps, only: %i[index show new edit create update destroy], shallow: true do
+    resource :favorites, only: %i[create destroy]
     collection do
       get :search
+      get :favorites
     end
   end
 
   # COMMANDS
-  resources :commands, only: [:create, :update, :destroy] do
+  resources :commands, only: %i[create update destroy] do
     member do
       patch :recomend_update
     end
