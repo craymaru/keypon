@@ -24,10 +24,24 @@ import "../stylesheets/application";
 // Font Awesome
 import "@fortawesome/fontawesome-free/js/all";
 
+// Fade Flashes
+import "../packs/fade_flashes.js";
+
 // Quicksearch
 import "../packs/jquery.quicksearch.js";
 import "../packs/search_command.by_quicksearch.js";
 
+
+
+// Action Text
+require("trix")
+require("@rails/actiontext")
+
+import "../stylesheets/actiontext"
+
+
 // import "bootstrap-material-design";
+
+
 
 const images = require.context("../images/", true);

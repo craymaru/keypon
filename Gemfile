@@ -70,6 +70,9 @@ gem "ransack", github: "activerecord-hackery/ransack"
 gem "acts-as-taggable-on", "~> 6.0"
 
 # Adds shrine for image upload function
-gem 'shrine'
-gem 'image_processing'
-gem 'mini_magick'
+gem "shrine"
+gem "image_processing"
+gem "mini_magick"
+
+# Adds Impressionist for PV count function
+gem "impressionist"

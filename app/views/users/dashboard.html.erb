@@ -6,7 +6,7 @@
   <div class="card border-secondary mb-3" style="width:100%">
     <div class="card-body row">
       <div class="col-3">
-        <%= image_tag @user.image[:small].url, class: "border border-dark rounded user-image-lg", fallback: "no_image.jpg" %>
+        <%= image_tag (@user.image_url(:small) || "#{asset_pack_path 'media/images/blank.png'}"), class: "border border-dark rounded user-image-lg", fallback: "no_image.jpg" %>
       </div>
       <div class="col-9">
         <%= link_to "User Settings", settings_path, class:"btn btn-secondary float-right" %>

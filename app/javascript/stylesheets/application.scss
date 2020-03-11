@@ -41,6 +41,10 @@ h6 {
   padding: 0.3em 0.45em;
 }
 
+.tag {
+  font-size: 80%;
+  padding: 0.3em 0.45em;
+}
 
 // -------------------------------
 // BOOTSTRAP-TAGS-INPUT
@@ -60,6 +64,18 @@ h6 {
   width: 100%;
   padding: 0.75rem 0.75rem;
   border-color: #222222;
+}
+
+.bootstrap-tagsinput input {
+  border: none;
+  box-shadow: none;
+  outline: none;
+  background-color: transparent;
+  padding: 0 6px;
+  margin: 0;
+  width: 10em;
+  max-width: inherit;
+  color: snow;
 }
 
 // -------------------------------
@@ -87,6 +103,35 @@ h6 {
 .logo_area:hover,
 .logo_area:focus {
   background-color: #2d3345;
+}
+
+// -------------------------------
+// FLASHES
+// -------------------------------
+.alert {
+  position: absolute;
+  z-index: 99;
+  opacity: 0.85;
+  height: auto;
+  width: auto;
+  left: 0;
+  right: 0;
+  margin: 1em;
+}
+
+.alert-success {
+  background-color: #105d5d;
+}
+
+.alert {
+  border: none;
+  color: #fff;
+  font-weight: 600;
+  font-size: 120%;
+}
+
+.text-center {
+  text-align: center !important;
 }
 
 // -------------------------------
@@ -150,6 +195,12 @@ button.list-group-item:focus {
 // -------------------------------
 // KEYMAPS :ID
 // -------------------------------
+
+.card-body.keymap-show {
+  flex: 1 1 auto;
+  min-height: 1px;
+  padding: 0.4rem;
+}
 
 // INTRODUCTION
 .introduction p {

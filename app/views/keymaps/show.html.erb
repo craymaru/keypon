@@ -1,15 +1,10 @@
-<%# KEYMAP / :ID %>
 <%# TITLES %>
-<div class="row mt-4">
-  <h1><%= @keymap.name %></h1>
+<div class="row mt-3">
+  <h2><%= @keymap.name %></h2>
+  <%# VERSION %>
   <div class="d-flex align-items-end ml-2 mb-3 mr-2">
-    <span class="badge badge-primary"><%= @keymap.version %></span>
-  </div>
-  <div>
-    <%# LINK TO EDIT %>
-    <%= link_to edit_keymap_path(@keymap) do %>
-      <i class="fas fa-edit"></i>
-    <% end %>
+    <span class="badge badge-primary mr-1"><%= @keymap.version %></span>
+    <span class="badge badge-dark"><%= @keymap.status %></span>
   </div>
 </div>
 <%# DATES %>
@@ -17,25 +12,32 @@
   <h6 class="ml-1">
     <span class="mr-2"><%= time_ago_in_words(@keymap.updated_at) %> ago</span>
     <span class="mr-2">Created: <%= @keymap.created_at.strftime("%d %B %Y at %R") %></span>
-    <span class="mr-2">Published Status: <%= @keymap.status %></span>
   </h6>
 </div>
 <%# TAGS % %>
 <div class="row">
-  <div class="d-flex align-items-end ml-1 mb-3">
+  <div class="d-flex align-items-end ml-1 row">
     <%= render 'Keymaps/tag_list', tag_list: @keymap.tag_list %>
   </div>
 </div>
-<%# ..TAGS %>
 <%# INTRODUCTION %>
+<% if false %>
+  <div class="row introduction">
+    <div class="card text-white bg-dark mt-2 mb-3" style="width:100%">
+      <div class="card-body">
+        <div class="card-text"><%= simple_format(h(@keymap.introduction)) %></div>
+      </div>
+    </div>
+  </div>
+<% end %>
+<%# CONTENT %>
 <div class="row introduction">
   <div class="card text-white bg-dark mt-2 mb-3" style="width:100%">
     <div class="card-body">
-      <div class="card-text"><%= simple_format(h(@keymap.introduction)) %></div>
+      <div class="card-text"><%= @keymap.content %></div>
     </div>
   </div>
 </div>
-<%# ..INTRODUCTION %>
 <%# KEYBOARD IMAGE %>
 <%# <div class="row">
   <div class="keyboard">
@@ -124,7 +126,7 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <%= form_with scope: :command, url: commands_path, local: true do |form| %>
+      <%= form_with scope: :command, url: commands_path(keymap_id: @keymap.id), local: true do |form| %>
         <div class="modal-body row">
           <div class="form-group">
           </div>

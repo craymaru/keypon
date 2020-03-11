@@ -1,6 +1,12 @@
 class Keymap < ApplicationRecord
+  # RichText
+  has_rich_text :content
+
   # acts-as-taggable-on
   acts_as_taggable
+
+  # IMPRESSIONIST
+  is_impressionable
 
   # ASSOCIATIONS
   belongs_to :user
@@ -16,4 +22,13 @@ class Keymap < ApplicationRecord
          "Private": 1,
          "Draft": 2,
        }
+
+  # VALIDATES
+  validates :user_id, presence: true
+  validates :name,
+            presence: true,
+            length: { minimum: 2, maximum: 64 }
+  validates :version, length: { maximum: 16 }
+  validates :introduction, length: { maximum: 500 }
+  validates :status, presence: true
 end

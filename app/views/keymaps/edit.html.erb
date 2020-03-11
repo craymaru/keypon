@@ -1,53 +1,13 @@
 <div class="row mt-4">
   <div class="col-sm-12">
-    <h1>Edit Keymap</h1>
+    <h3>Edit Keymap</h3>
+    <%# ERRORS %>
+    <%= render 'Keymaps/errors', keymap: @keymap %>
+    <%# FORMS %>
     <%= form_with scope: :keymap, url: keymap_path(@keymap), method: :put, local: true do |f| %>
       <fieldset>
-        <%#  %>
-        <div class="form-group">
-          <%= f.label :tag_list, "Tags" %>
-          <div class="tags">
-            <%= text_field_tag 'keymap[tag_list]', @keymap.tag_list.join(","), data: {role: "tagsinput"}, class: "form-control"%>
-          </div>
-        </div>
-        <%#  %>
-        <legend>Keymap</legend>
-        <div class="form-group">
-          <%= f.label :name, "Name *" %>
-          <%= f.text_field :name, class: "form-control", placeholder: "Enter keynmap name" %>
-          <small id="nameHelp" class="form-text text-muted">Using strings of 64 characters max.</small>
-        </div>
-        <div class="form-group">
-          <%= f.label :version, "Version" %>
-          <%= f.text_field :version, class: "form-control", placeholder: "Enter keynmap version" %>
-          <small id="versionHelp" class="form-text text-muted">using only alphanumeric characters.</small>
-        </div>
-        <div class="form-group">
-          <%= f.label :introduction, "Introduction" %>
-          <%= f.text_area :introduction, class: "form-control", rows: "3", placeholder: "Enter keynmap introduction" %>
-        </div>
-        <fieldset class="form-group">
-          <legend>Status</legend>
-          <div class="form-check">
-            <label class="form-check-label">
-              <%= f.radio_button :status, "Public", class: "form-check-input", checked:true %>
-              Public --- This keymap will be visible to everyone.
-            </label>
-          </div>
-          <div class="form-check">
-            <label class="form-check-label">
-              <%= f.radio_button :status, "Private", class: "form-check-input" %>
-              Private
-            </label>
-          </div>
-          <div class="form-check">
-            <label class="form-check-label">
-              <%= f.radio_button :status, "Draft", class: "form-check-input" %>
-              Draft
-            </label>
-          </div>
-        </fieldset>
-        <%= f.button 'Update', type: 'submit', onclick: 'submit()', id: 'customButton', class: "btn btn-primary"%>
+        <%= render 'Keymaps/form_keymap', f: f %>
+        <%= f.button 'Save Changes', type: 'submit', onclick: 'submit()', id: 'customButton', class: "btn btn-primary"%>
       </fieldset>
     <% end %>
   </div>
