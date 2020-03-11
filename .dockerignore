@@ -1,0 +1,13 @@
+.DS_Store
+
+# /*.log
+
+# /node_modules
+
+# # Webpacker
+# /public/assets
+# /public/packs
+# /public/packs-test
+
+# # Shrine
+# /public/uploads
