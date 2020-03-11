@@ -1,0 +1,22 @@
+<%# SEARCH FORM %>
+<div class="row mt-4">
+  <div class="col-12">
+    <%= search_form_for @q, url: search_keymaps_path, local: true do |f| %>
+      <fieldset class="col-12">
+        <div class="form-group form-inline">
+          <%= f.search_field :name_or_introduction_or_tags_name_cont_all, class: "form-control form-search col", placeholder: "Search" %>
+          <%= button_tag :submit, class: "form-control form-search", style: "width:60px" do %>
+            <i class="fa fa-search"></i>
+          <% end %>
+        </div>
+      </fieldset>
+    <% end %>
+  </div>
+</div>
+<%#  %>
+<%# KEYMAP LIST %>
+<div class="row mt-2">
+  <div class="col-12">
+    <%= render 'keymaps/keymaps', keymaps: @keymaps %>
+  </div>
+</div>

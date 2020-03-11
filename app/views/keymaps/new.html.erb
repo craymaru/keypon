@@ -1,0 +1,15 @@
+<%# KEYMAPS / NEW %>
+<div class="row mt-4">
+  <div class="col-sm-12">
+    <h2>New Keymap</h2>
+    <%# ERRORS %>
+    <%= render 'keymaps/errors', keymap: @keymap %>
+    <%# FORMS %>
+    <%= form_with scope: :keymap, url: keymaps_path, method: :post, local: true do |f| %>
+      <fieldset>
+        <%= render 'keymaps/form', f: f %>
+        <%= f.button 'Submit', type: 'submit', onclick: 'submit()', id: 'customButton', class: "btn btn-primary"%>
+      </fieldset>
+    <% end %>
+  </div>
+</div>

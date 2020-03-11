@@ -29,3 +29,14 @@
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
+
+# Ubuntu log
+/*.log
+
+# Webpacker
+/public/assets
+/public/packs
+/public/packs-test
+
+# Shrine
+/public/uploads

@@ -1,0 +1,98 @@
+<div class="row mt-3">
+  <h3>User Settings</h3>
+</div>
+<div class="row mt-3">
+  <%# PROFILE IMAGE %>
+  <div class="card border-secondary mb-3" style="width:100%">
+    <div class="card-header">Profile Image</div>
+    <%= form_with scope: :user, url: user_path(@user), method: :put do |f| %>
+      <div class="card-body row">
+        <div class="col-3">
+          <%= image_tag (@user.image_url(:small) || "#{asset_pack_path 'media/images/blank.png'}"), class: "border border-dark rounded user-image-lg", fallback: "no_image.jpg" %>
+          <% if @user.cached_image_data.present? %>
+          <% end %>
+        </div>
+        <div class="col-9">
+          <div class="form-group">
+            <div class="input-group">
+              <div class="custom-file">
+                <%= f.hidden_field :image, value: current_user.cached_image_data %>
+                <%= f.file_field :image, type: "file", class:"custom-file-input", id:"inputGroupFile" %>
+                <label class="custom-file-label" for="inputGroupFile">Choose file</label>
+              </div>
+              <div class="input-group-append">
+                <%= f.button 'Upload', type: 'submit', onclick: 'submit()', id: 'customButton', class: "input-group-text"%>
+              </div>
+            </div>
+            <small id="imageHelp" class="form-text text-muted">The maximum file size of an image is 5MB.</small>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <%# SETTINGS %>
+  <div class="card border-secondary mb-3" style="width:100%">
+    <%= form_with scope: :user, url: user_path(@user), method: :put do |f| %>
+      <div class="card-header">Profile Settings</div>
+      <div class="card-body row">
+        <div class="col-3">
+          <%= f.label :username, "Username *" %>
+        </div>
+        <div class="col-9">
+          <div class="form-group">
+            <%= f.text_field :username, class: "form-control", placeholder: "Enter username" %>
+            <small id="usernameHelp" class="form-text text-muted">Username validates.</small>
+          </div>
+        </div>
+      </div>
+      <div class="card-body row">
+        <div class="col-3">
+          <%= f.label :name, "Display Name" %>
+        </div>
+        <div class="col-9">
+          <div class="form-group">
+            <%= f.text_field :name, class: "form-control", placeholder: "Enter display name" %>
+            <small id="nameHelp" class="form-text text-muted">Name validates.</small>
+          </div>
+        </div>
+      </div>
+      <div class="card-body row">
+        <div class="col-3">
+          <%= f.label :email, "Email *" %>
+        </div>
+        <div class="col-9">
+          <div class="form-group">
+            <input type="text" readonly="" class="form-control-plaintext" id="staticEmail" value="<%= @user.email %>">
+          </div>
+          <div class="form-group">
+            <%= f.text_field :email, type:"email", class: "form-control", placeholder: "Enter email" %>
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          </div>
+        </div>
+      </div>
+      <div class="card-body row">
+        <div class="col-3">
+          <%= f.label :password, "Password *" %>
+        </div>
+        <div class="col-9">
+          <div class="form-group">
+            <%= f.text_field :password, type:"password", class: "form-control", placeholder: "Password" %>
+          </div>
+        </div>
+      </div>
+      <div class="card-body row">
+        <div class="col-3">
+          <%= f.label :biography, "Biography" %>
+        </div>
+        <div class="col-9">
+          <div class="form-group">
+            <%= f.text_area :biography, class: "form-control", placeholder: "", rows: "3" %>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer text-muted text-right">
+        <%= f.button 'Update Changes', type: 'submit', onclick: 'submit()', id: 'customButton', class: "btn btn-primary"%>
+      </div>
+    <% end %>
+  </div>
+</div>

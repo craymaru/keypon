@@ -1,5 +1,7 @@
 FROM ruby:2.6.5
 
+ENV DEBCONF_NOWARNINGS yes
+
 RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
 RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
 
@@ -27,13 +29,28 @@ ENV PATH /app/bin:$BUNDLE_BIN:$PATH
 
 WORKDIR /app
 
+COPY package.json .
+COPY yarn.lock .
+RUN yarn install --check-files
+
 RUN gem install bundler
 COPY Gemfile .
 COPY Gemfile.lock .
 RUN bundle install -j4
 
+
 COPY . /app
+RUN yarn install --check-files
 RUN rails webpacker:install
+RUN rails action_text:install
+RUN bundle install -j4
+
+RUN cp /app/docker/rails/database.yml /app/config/database.yml
+RUN cp /app/docker/rails/bootstrap-tagsinput.js /app/node_modules/bootstrap-tagsinput/dist/bootstrap-tagsinput.js
+
+
+# FOR PRODUCTION ENV
+# RUN rails assets:precompile
 
 EXPOSE 3000
 

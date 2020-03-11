@@ -1,15 +1,129 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>App</title>
+    <title>KEYPON</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c" rel="stylesheet">
   </head>
-
   <body>
-    <%= yield %>
+    <%# HEADER %>
+    <header class="sticky-top">
+      <nav class="navbar navbar-expand navbar-dark bg-dark">
+        <%# LOGO %>
+        <%= link_to keymaps_path do %>
+          <div class="logo_area d-flex align-items-center">
+            <div class="logo mx-auto">
+            </div>
+          </div>
+        <% end %>
+        <%# COLLAPSE BUTTON %>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <%# L MENU %>
+        <div class="collapse navbar-collapse ml-2" id="navbarColor02">
+          <ul class="navbar-nav mr-auto">
+            <%=  %>
+            <li class="nav-item <%= is_active_controller_and_action?("users", "dashboard") %>">
+              <%= link_to "Dashboard", dashboard_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item <%= is_active_controller_and_action?("users", "index") %>">
+              <a class="nav-link disabled" href="#">Users</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled" href="#">Tags</a>
+            </li>
+          </ul>
+          <%# R MENU %>
+          <% if user_signed_in? %>
+            <%# + EDIT KEYMAP - MENU %>
+            <ul class="navbar-nav">
+              <% if is_active_controller_and_action?("keymaps", "show").present? %>
+                <% if is_owner = current_user.id == Keymap.find(params[:id]).user.id %>
+                  <li class="nav-item">
+                    <%= link_to edit_keymap_path(@keymap), class: "nav-link" do %>
+                      <i class="fas fa-edit fa-lg"></i>
+                    <% end %>
+                  </li>
+                <% end %>
+              <% end %>
+            </ul>
+            <%# + NEW KEYMAP - MENU %>
+            <ul class="navbar-nav">
+              <%# + NEW KEYMAP - DROPDOWN MENU %>
+              <% if is_active_controller_and_action?("keymaps", "new").present? %>
+                <%# + NEW KEYMAP - NEW %>
+              <% elsif is_active_controller_and_action?("keymaps", "show").present? %>
+                <%# + NEW KEYMAP - KEYMAP %>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-pen fa-lg"></i>
+                  </a>
+                  <div class="dropdown-menu dropdown-menu-right" style="">
+                    <%= link_to new_keymap_path, class: "dropdown-item nav-link" do %>
+                      <i class="fas fa-plus" style="margin: 0 0.4rem "></i><span>Create New Keymap</span>
+                    <% end %>
+                    <%= link_to new_keymap_path, class: "dropdown-item nav-link" do %>
+                      <i class="fas fa-plus" style="margin: 0 0.4rem "></i><span>Create New Keymap (Inharit)</span>
+                    <% end %>
+                  </div>
+                </li>
+              <% else %>
+                <%# + NEW KEYMAP - COMMON %>
+                <li class="nav-item">
+                  <%= link_to new_keymap_path, class: "nav-link" do %>
+                    <i class="fas fa-pen fa-lg"></i>
+                  <% end %>
+                </li>
+              <% end %>
+            </ul>
+            <%# □ USER - DROPDOWN MENU %>
+            <ul class="navbar-nav">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                  <%= image_tag (current_user.image_url(:small) || "#{asset_pack_path 'media/images/blank.png'}"), class: "border border-dark rounded user-image-sm"%>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" style="">
+                  <%# □ USER - DASHBOARD %>
+                  <%= link_to dashboard_path, class: "dropdown-item nav-link" do %>
+                    <i class="fa fa-home" style="margin: 0 0.35rem "></i><span>Dashboard</span>
+                  <% end %>
+                  <%# □ USER - USER SETTINGS %>
+                  <%= link_to settings_path, class: "dropdown-item nav-link" do %>
+                    <i class="fa fa-cog" style="margin: 0 0.405rem "></i><span>User Settings</span>
+                  <% end %>
+                  <%# □ USER - SIGN OUT %>
+                  <div class="dropdown-divider"></div>
+                  <%= link_to destroy_user_session_path, method: :delete, class: "dropdown-item nav-link" do %>
+                    <i class="fas fa-sign-out-alt" style="margin: 0 0.405rem "></i><span>Sign out</span>
+                  <% end %>
+                </div>
+              </li>
+            </ul>
+          <% else %>
+            <ul class="navbar-nav mr-2">
+              <li><%= link_to "Sign-up", new_user_registration_path, class: "nav-link" %></li>
+              <li><%= link_to "Log-in", new_user_session_path, class: "nav-link" %></li>
+            </ul>
+          <% end %>
+        </div>
+      </nav>
+    </header>
+    <%# MAIN %>
+    <div class="row">
+      <%# FLASH MESSAGE %>
+      <%= render partial: "layouts/flashes", flash: flash %>
+    </div>
+    <main>
+      <%# CONTENTS %>
+      <div class="container">
+        <%= yield %>
+      </div>
+    </main>
+    <%# FOOTER %>
+    <footer>
+    </footer>
   </body>
 </html>
