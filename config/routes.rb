@@ -7,9 +7,9 @@ Rails.application.routes.draw do
 
   # DEVICES
   devise_for :users, controllers: {
-                       registrations: "users/registrations",
-                       sessions: "users/sessions",
-                     }
+    registrations: "users/registrations",
+    sessions: "users/sessions",
+  }
 
   devise_scope :user do
     get "sign_in", :to => "users/sessions#new"
@@ -23,14 +23,7 @@ Rails.application.routes.draw do
       get :settings
     end
   end
-
-  # USERS
-  resources :end_users, only: [:show, :edit, :update, :destroy] do
-    collection do
-      get :confirm
-    end
-  end
-
+  
   # KEYMAPS
   resources :keymaps, only: [:index, :show, :new, :edit, :create, :update, :destroy] do
     collection do

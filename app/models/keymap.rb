@@ -1,9 +1,12 @@
 class Keymap < ApplicationRecord
-  # Rich Text
+  # RichText
   has_rich_text :content
 
   # acts-as-taggable-on
   acts_as_taggable
+
+  # IMPRESSIONIST
+  is_impressionable
 
   # ASSOCIATIONS
   belongs_to :user

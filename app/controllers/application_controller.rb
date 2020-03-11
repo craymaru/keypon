@@ -5,6 +5,10 @@ class ApplicationController < ActionController::Base
   # FLASH MESSAGE TYPES
   add_flash_types :success, :info, :warning, :danger
 
+  def after_sign_out_path_for(resource_or_scope)
+    root_path
+  end
+
   protected
 
   # DEVISE STRONG PARAMS

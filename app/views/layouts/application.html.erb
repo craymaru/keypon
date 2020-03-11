@@ -96,7 +96,7 @@
                   <% end %>
                   <%# □ USER - SIGN OUT %>
                   <div class="dropdown-divider"></div>
-                  <%= link_to destroy_user_session_path, class: "dropdown-item nav-link" do %>
+                  <%= link_to destroy_user_session_path, method: :delete, class: "dropdown-item nav-link" do %>
                     <i class="fas fa-sign-out-alt" style="margin: 0 0.405rem "></i><span>Sign out</span>
                   <% end %>
                 </div>

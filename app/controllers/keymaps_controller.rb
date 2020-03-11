@@ -1,4 +1,8 @@
 class KeymapsController < ApplicationController
+  # PV COUNT BY IMPRESSIONIST
+  impressionist :actions => [:show]
+
+
   def index
   end
 
@@ -28,6 +32,12 @@ class KeymapsController < ApplicationController
 
   def show
     @keymap = Keymap.find(params[:id])
+    # PV COUNT BY IMPRESSIONIST
+    # if session_hash.blank?
+    #   impressionist(@keymap)
+    # else
+    #   impressionist(@keymap, nil, unique: [:session_hash])
+    # end
     @categorized_keymap = @keymap.commands.group_by { |i| i.category_name }
   end
 
