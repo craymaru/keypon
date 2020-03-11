@@ -40,7 +40,14 @@ RUN bundle install -j4
 
 
 COPY . /app
+RUN yarn install --check-files
 RUN rails webpacker:install
+RUN rails action_text:install
+RUN bundle install -j4
+
+COPY /docker/rails/database.yml /config/database.yml
+COPY /docker/rails/bootstrap-tagsinput.js /node_modules/bootstrap-tagsinput/dist/bootstrap-tagsinput.js
+
 
 # FOR PRODUCTION ENV
 # RUN rails assets:precompile
