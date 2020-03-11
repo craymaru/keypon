@@ -29,6 +29,10 @@ class Keymap < ApplicationRecord
     favorites.where(user_id: user.id).exists?
   end
 
+  def rating()
+    (self.impressionist_count * 1) + (self.favorites.count * 128)
+  end
+
   # VALIDATES
   validates :user_id, presence: true
   validates :name,
