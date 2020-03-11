@@ -34,7 +34,7 @@ class CommandsController < ApplicationController
 
   def destroy
     command = Command.find(params[:id])
-    command.destroy
+    command.destroy!
     redirect_back(fallback_location: keymap_path(command.keymap))
   end
 

@@ -4,7 +4,8 @@
   <%# VERSION %>
   <div class="d-flex align-items-end ml-2 mb-3 mr-2">
     <span class="badge badge-primary mr-1"><%= @keymap.version %></span>
-    <span class="badge badge-dark"><%= @keymap.status %></span>
+    <span class="badge badge-dark mr-2"><%= @keymap.status %></span>
+    <%= render 'keymaps/favorite', keymap: @keymap %>
   </div>
 </div>
 <%# DATES %>
@@ -17,7 +18,7 @@
 <%# TAGS % %>
 <div class="row">
   <div class="d-flex align-items-end ml-1 row">
-    <%= render 'Keymaps/tag_list', tag_list: @keymap.tag_list %>
+    <%= render 'keymaps/tags', tag_list: @keymap.tag_list %>
   </div>
 </div>
 <%# INTRODUCTION %>

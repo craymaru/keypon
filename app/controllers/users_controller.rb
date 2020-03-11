@@ -30,7 +30,7 @@ class UsersController < ApplicationController
     puts "-----------------------"
     @user = User.find(current_user.id)
 
-    if @user.update(user_params)
+    if @user.update!(user_params)
       redirect_back(fallback_location: dashboard_path, success: "Successfully Updated!")
     else
       @user = current_user

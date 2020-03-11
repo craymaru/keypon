@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'favorites/create'
+  get 'favorites/destroy'
   # ROOT
   root "keymaps#search"
   get "dashboard", :to => "users#dashboard"

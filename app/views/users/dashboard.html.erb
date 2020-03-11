@@ -27,19 +27,19 @@
   <% if @user.keymaps.where(status: "Draft").present? %>
     <h4 class="text-warning mt-3">Draft</h4>
     <div class="col-12">
-      <%= render 'Keymaps/keymap_list', keymaps: @user.keymaps.where(status: "Draft") %>
+      <%= render 'keymaps/keymaps', keymaps: @user.keymaps.where(status: "Draft") %>
     </div>
   <% end %>
   <% if @user.keymaps.where(status: "Pubric").present? %>
     <h4 class="text-success mt-3">Pubric</h4>
     <div class="col-12">
-      <%= render 'Keymaps/keymap_list', keymaps: @user.keymaps.where(status: "Pubric") %>
+      <%= render 'keymaps/keymaps', keymaps: @user.keymaps.where(status: "Pubric") %>
     </div>
   <% end %>
   <% if @user.keymaps.where(status: "Private").present? %>
     <h4 class="text-muted mt-3">Private</h4>
     <div class="col-12">
-      <%= render 'Keymaps/keymap_list', keymaps: @user.keymaps.where(status: "Private") %>
+      <%= render 'keymaps/keymaps', keymaps: @user.keymaps.where(status: "Private") %>
     </div>
   <% end %>
 </div>
