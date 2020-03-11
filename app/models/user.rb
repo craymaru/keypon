@@ -6,8 +6,9 @@ class User < ApplicationRecord
 
   # ASSOCIATIONS
   has_many :keymaps
-  has_many :favorites
-  has_many :rates
+  has_many :favorites, dependent: :destroy
+  has_many :favorite_keymaps, through: :favorites, source: :keymap
+  has_many :rates, dependent: :destroy
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
