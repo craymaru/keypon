@@ -17,14 +17,14 @@
 /storage/*
 !/storage/.keep
 
-/public/assets
 .byebug_history
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 
-/public/packs
-/public/packs-test
+# /public/assets
+# /public/packs
+# /public/packs-test
 /node_modules
 /yarn-error.log
 yarn-debug.log*
@@ -33,10 +33,6 @@ yarn-debug.log*
 # Ubuntu log
 /*.log
 
-# Webpacker
-/public/assets
-/public/packs
-/public/packs-test
 
 # Shrine
 /public/uploads
