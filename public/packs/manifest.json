@@ -1,0 +1,60 @@
+{
+  "application.js": "/packs/js/application-c8acdbf15c6e204b2b9e.js",
+  "application.js.map": "/packs/js/application-c8acdbf15c6e204b2b9e.js.map",
+  "bootstrap-tagsinput.js": "/packs/js/bootstrap-tagsinput-cf77a99935cbcda8bce8.js",
+  "bootstrap-tagsinput.js.map": "/packs/js/bootstrap-tagsinput-cf77a99935cbcda8bce8.js.map",
+  "entrypoints": {
+    "application": {
+      "js": [
+        "/packs/js/application-c8acdbf15c6e204b2b9e.js"
+      ],
+      "js.map": [
+        "/packs/js/application-c8acdbf15c6e204b2b9e.js.map"
+      ]
+    },
+    "bootstrap-tagsinput": {
+      "js": [
+        "/packs/js/bootstrap-tagsinput-cf77a99935cbcda8bce8.js"
+      ],
+      "js.map": [
+        "/packs/js/bootstrap-tagsinput-cf77a99935cbcda8bce8.js.map"
+      ]
+    },
+    "fade_flashes": {
+      "js": [
+        "/packs/js/fade_flashes-deda0218e195a0ef9bc3.js"
+      ],
+      "js.map": [
+        "/packs/js/fade_flashes-deda0218e195a0ef9bc3.js.map"
+      ]
+    },
+    "jquery": {
+      "js": [
+        "/packs/js/jquery-33ee4328f88f40fb3409.js"
+      ],
+      "js.map": [
+        "/packs/js/jquery-33ee4328f88f40fb3409.js.map"
+      ]
+    },
+    "search_command": {
+      "js": [
+        "/packs/js/search_command-93378cb54db675cc5fe6.js"
+      ],
+      "js.map": [
+        "/packs/js/search_command-93378cb54db675cc5fe6.js.map"
+      ]
+    }
+  },
+  "fade_flashes.js": "/packs/js/fade_flashes-deda0218e195a0ef9bc3.js",
+  "fade_flashes.js.map": "/packs/js/fade_flashes-deda0218e195a0ef9bc3.js.map",
+  "jquery.js": "/packs/js/jquery-33ee4328f88f40fb3409.js",
+  "jquery.js.map": "/packs/js/jquery-33ee4328f88f40fb3409.js.map",
+  "media/images/blank.jpg": "/packs/media/images/blank-f48b3d738e96354fc4de0e2ab913e4f7.jpg",
+  "media/images/blank.png": "/packs/media/images/blank-6e942190e73db3c377bd04d5fcb7baea.png",
+  "media/images/logo_keypon.svg": "/packs/media/images/logo_keypon-6a43d3506e5a86362bb5f4b97d561b9f.svg",
+  "media/images/logo_keypon_f4.svg": "/packs/media/images/logo_keypon_f4-bdbd466588bb9098436a7ad336eb1dc8.svg",
+  "media/images/magic_keyboard_spacegray_2000x540.png": "/packs/media/images/magic_keyboard_spacegray_2000x540-9ba9f635714e9354144f143e0b395c77.png",
+  "media/images/magic_keyboard_spacegray_shaded.png": "/packs/media/images/magic_keyboard_spacegray_shaded-cd5c9eeba2c9fe80c6ec6d85d4b809e8.png",
+  "search_command.js": "/packs/js/search_command-93378cb54db675cc5fe6.js",
+  "search_command.js.map": "/packs/js/search_command-93378cb54db675cc5fe6.js.map"
+}
