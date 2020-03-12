@@ -1,5 +1,12 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!, only: %i[dashboard settings update destroy]
+  before_action :authenticate_owner!, only: %i[update destroy]
+
+  def authenticate_owner!
+    return if current_user == User.find(params[:id])
+    flash[:danger] = "authenticate_owner!"
+    redirect_back(fallback_location: root_path)
+  end
 
   def index
   end

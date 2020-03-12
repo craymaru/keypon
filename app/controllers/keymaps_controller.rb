@@ -1,14 +1,11 @@
 class KeymapsController < ApplicationController
   before_action :authenticate_user!, only: %i[new edit create update destroy]
+  before_action :authenticate_owner!, only: %i[edit update destroy]
 
-  before_action :authenticate_owner, only: %i[:edit]
-
-  def authenticate_owner
+  def authenticate_owner!
+    return if current_user == Keymap.find(params[:id]).user
+    flash[:danger] = "authenticate_owner!"
     redirect_back(fallback_location: root_path)
-    keymap = Keymap.find(params[:id])
-    if current_user = keymap.user
-      redirect_back(fallback_location: root_path)
-    end
   end
 
   # PV COUNT BY IMPRESSIONIST
