@@ -4,7 +4,7 @@ orbs:
   aws-ecs: circleci/aws-ecs@1.1.0
 workflows:
   # Nginxのデプロイ
-  keypon-nginx-deploy:
+  nginx-deploy:
     jobs:
       - aws-ecr/build-and-push-image:
           account-url: AWS_ECR_ACCOUNT_URL
@@ -26,7 +26,7 @@ workflows:
           service-name: "keypon-service" #サービス名
           container-image-name-updates: "container=nginx,tag=${CIRCLE_SHA1}"
   # Railsのデプロイ
-  keypon-nginx-deploy:
+  nginx-deploy:
     jobs:
       - aws-ecr/build-and-push-image:
           account-url: AWS_ECR_ACCOUNT_URL
