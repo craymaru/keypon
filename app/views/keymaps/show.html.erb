@@ -1,6 +1,6 @@
 <%# TITLES %>
 <div class="row mt-3">
-  <h2><%= @keymap.name %></h2>
+  <h3><%= @keymap.name %></h3>
   <%# VERSION %>
   <div class="d-flex align-items-end ml-2 mb-3 mr-2">
     <span class="badge badge-primary mr-1"><%= @keymap.version %></span>
@@ -24,7 +24,7 @@
 <%# INTRODUCTION %>
 <% if false %>
   <div class="row introduction">
-    <div class="card text-white bg-dark mt-2 mb-3" style="width:100%">
+    <div class="card text-white mt-2 mb-3" style="width:100%">
       <div class="card-body">
         <div class="card-text"><%= simple_format(h(@keymap.introduction)) %></div>
       </div>
@@ -33,7 +33,7 @@
 <% end %>
 <%# CONTENT %>
 <div class="row introduction">
-  <div class="card text-white bg-dark mt-2 mb-3" style="width:100%">
+  <div class="card text-white mt-2 mb-3" style="width:100%">
     <div class="card-body">
       <div class="card-text"><%= @keymap.content %></div>
     </div>
@@ -104,8 +104,8 @@
     <% end %>
   </div>
 </div>
-<%# ..COMMANDS %>
-<%# IMPUT MODAL BUTTON %>
+<% if current_user == @keymap.user %>
+<%# COMMAND IMPUT BUTTON - MODAL %>
 <div class="row">
   <div class="col-12 mt-3">
     <div class="text-center">
@@ -116,8 +116,7 @@
     </div>
   </div>
 </div>
-<%# ..IMPUT MODAL BUTTON %>
-<%# IMPUT MODAL %>
+<%# COMMAND IMPUT FORM - MODAL %>
 <div class="modal fade bottom show" id="commandImputModal" tabindex="-1" role="dialog" aria-labelledby="commandImputModalLabel" aria-hidden="false">
   <div class="modal-dialog modal-full-height modal-bottom" role="dialog">
     <div class="modal-content">
@@ -145,11 +144,10 @@
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cansel</button>
           <%= form.button 'Submit', type: 'submit', onclick: 'submit()', id: 'customButton', class: "btn btn-primary"%>
         </div>
       <% end %>
     </div>
   </div>
 </div>
-<%# ..IMPUT MODAL %>
+<% end %>

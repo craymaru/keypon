@@ -26,7 +26,9 @@ class Keymap < ApplicationRecord
 
   # INSTANCE-METHODS
   def favorite_by?(user)
-    favorites.where(user_id: user.id).exists?
+    if user.present?
+      favorites.where(user_id: user.id).exists?
+    end
   end
 
   def rating()

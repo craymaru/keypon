@@ -1,4 +1,6 @@
 class CommandsController < ApplicationController
+  before_action :authenticate_user!, only: %i[create update]
+
   def create
     ActiveRecord::Base.transaction do
       keymap = Keymap.find(params[:keymap_id])
@@ -9,6 +11,7 @@ class CommandsController < ApplicationController
           flash[:success] = "Command Saved!"
         end
       end
+      redirect_to keymap_path(@command.keymap)
     end
 
     # render status: :ok, json: {}
@@ -34,7 +37,7 @@ class CommandsController < ApplicationController
 
   def destroy
     command = Command.find(params[:id])
-    command.destroy!
+    command.destroy
     redirect_back(fallback_location: keymap_path(command.keymap))
   end
 

@@ -1,6 +1,15 @@
 class KeymapsController < ApplicationController
+  before_action :authenticate_user!, only: %i[new edit create update destroy]
+  before_action :authenticate_owner!, only: %i[edit update destroy]
+
+  def authenticate_owner!
+    return if current_user == Keymap.find(params[:id]).user
+    flash[:danger] = "authenticate_owner!"
+    redirect_back(fallback_location: root_path)
+  end
+
   # PV COUNT BY IMPRESSIONIST
-  impressionist :actions => [:show]
+  impressionist :actions => %i[show]
 
   def index
   end
@@ -50,7 +59,7 @@ class KeymapsController < ApplicationController
     puts "params[:q]:"
     puts keymap_params
     puts "--------------------------"
-    if @keymap.save!
+    if @keymap.save
       redirect_to keymap_path(@keymap), success: "Successfully Created!"
     else
       flash[:danger] = "Save Error!"
@@ -60,7 +69,7 @@ class KeymapsController < ApplicationController
 
   def update
     @keymap = Keymap.find(params[:id])
-    if @keymap.update!(keymap_params)
+    if @keymap.update(keymap_params)
       redirect_to keymap_path(@keymap), success: "Successfully Updated!"
     else
       flash[:danger] = "Save Error!"
