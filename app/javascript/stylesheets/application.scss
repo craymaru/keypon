@@ -16,25 +16,51 @@
 body {
   background: linear-gradient(269deg, #342828, #2b3029, #283334, #2e2834, #34282f);
   background-size: 1000% 1000%;
-  
+
   -webkit-animation: KeyponGradient 46s ease infinite;
   -moz-animation: KeyponGradient 46s ease infinite;
   animation: KeyponGradient 46s ease infinite;
-  
+
   @-webkit-keyframes KeyponGradient {
-      0%{background-position:0% 81%}
-      50%{background-position:100% 20%}
-      100%{background-position:0% 81%}
+    0% {
+      background-position: 0% 81%
+    }
+
+    50% {
+      background-position: 100% 20%
+    }
+
+    100% {
+      background-position: 0% 81%
+    }
   }
+
   @-moz-keyframes KeyponGradient {
-      0%{background-position:0% 81%}
-      50%{background-position:100% 20%}
-      100%{background-position:0% 81%}
+    0% {
+      background-position: 0% 81%
+    }
+
+    50% {
+      background-position: 100% 20%
+    }
+
+    100% {
+      background-position: 0% 81%
+    }
   }
+
   @keyframes KeyponGradient {
-      0%{background-position:0% 81%}
-      50%{background-position:100% 20%}
-      100%{background-position:0% 81%}
+    0% {
+      background-position: 0% 81%
+    }
+
+    50% {
+      background-position: 100% 20%
+    }
+
+    100% {
+      background-position: 0% 81%
+    }
   }
 }
 
@@ -370,5 +396,3 @@ button.list-group-item:focus {
   height: 3rem;
   object-fit: cover;
 }
-
-.dropdown-toggle::after {}
