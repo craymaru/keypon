@@ -34,8 +34,8 @@ yarn-debug.log*
 /*.log
 
 # Webpacker
-/public/assets
-/public/packs
+# /public/assets
+# /public/packs
 /public/packs-test
 
 # Shrine
