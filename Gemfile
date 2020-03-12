@@ -78,4 +78,4 @@ gem "mini_magick"
 gem "impressionist"
 
 # S3
-gem ' aws-sdk-s3 '、'〜> 1 '
+gem "aws-sdk", "~> 3"
