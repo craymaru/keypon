@@ -1,15 +1,15 @@
 {
-  "application.js": "/packs/js/application-c8acdbf15c6e204b2b9e.js",
-  "application.js.map": "/packs/js/application-c8acdbf15c6e204b2b9e.js.map",
+  "application.js": "/packs/js/application-bb71dba9c2cf37c614ff.js",
+  "application.js.map": "/packs/js/application-bb71dba9c2cf37c614ff.js.map",
   "bootstrap-tagsinput.js": "/packs/js/bootstrap-tagsinput-cf77a99935cbcda8bce8.js",
   "bootstrap-tagsinput.js.map": "/packs/js/bootstrap-tagsinput-cf77a99935cbcda8bce8.js.map",
   "entrypoints": {
     "application": {
       "js": [
-        "/packs/js/application-c8acdbf15c6e204b2b9e.js"
+        "/packs/js/application-bb71dba9c2cf37c614ff.js"
       ],
       "js.map": [
-        "/packs/js/application-c8acdbf15c6e204b2b9e.js.map"
+        "/packs/js/application-bb71dba9c2cf37c614ff.js.map"
       ]
     },
     "bootstrap-tagsinput": {
