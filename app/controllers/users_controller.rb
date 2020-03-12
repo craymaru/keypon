@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!, only: %i[dashboard settings update destroy]
+
   def index
   end
 

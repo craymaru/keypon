@@ -1,6 +1,18 @@
 class KeymapsController < ApplicationController
+  before_action :authenticate_user!, only: %i[new edit create update destroy]
+
+  before_action :authenticate_owner, only: %i[:edit]
+
+  def authenticate_owner
+    redirect_back(fallback_location: root_path)
+    keymap = Keymap.find(params[:id])
+    if current_user = keymap.user
+      redirect_back(fallback_location: root_path)
+    end
+  end
+
   # PV COUNT BY IMPRESSIONIST
-  impressionist :actions => [:show]
+  impressionist :actions => %i[show]
 
   def index
   end
