@@ -1,4 +1,5 @@
 class FavoritesController < ApplicationController
+  before_action :authenticate_user!, only: %i[create destroy]
   def create
     favorite = current_user.favorites.build(keymap_id: params[:keymap_id])
     favorite.save!
