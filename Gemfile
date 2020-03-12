@@ -76,3 +76,6 @@ gem "mini_magick"
 
 # Adds Impressionist for PV count function
 gem "impressionist"
+
+# S3
+gem ' aws-sdk-s3 '、'〜> 1 '
