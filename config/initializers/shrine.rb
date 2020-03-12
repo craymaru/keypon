@@ -7,11 +7,14 @@ require "shrine/storage/s3"
 # PRODUCTION - S3
 if Rails.env.production?
   s3_options = {
-    access_key_id: "your_access_key_id",
-    secret_access_key: "your_secret_access_key",
     region: "ap-northeast-1",
-    bucket: "abc.example.com",
+    bucket: "keypon.shrine.images",
   }
+  if ENV["AWS_CONTAINER_CREDENTIALS_RELATIVE_URI"]
+    s3_options = s3_options.merge(credentials: Aws::ECSCredentials.new)
+  else
+    s3_options = s3_options.merge(credentials: Aws::InstanceProfileCredentials.new)
+  end
 
   Shrine.storages = {
     cache: Shrine::Storage::S3.new(prefix: "cache", **s3_options),
