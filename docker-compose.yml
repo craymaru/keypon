@@ -19,11 +19,9 @@ services:
       - .:/app:cached
       - /var/tmp
       - sockets:/app/tmp/sockets
-      #
       - bundle:/bundle
       - rails_cache:/app/tmp/cache
       - node_modules:/app/node_modules
-      #
     tty: true
     depends_on:
       - db
