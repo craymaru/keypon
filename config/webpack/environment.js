@@ -1,6 +1,6 @@
 const { environment } = require("@rails/webpacker");
 const merge = require("webpack-merge");
-const webpack = require("webpack");
+
 // Require jQuery and Bootstap javascripts
 const webpack = require("webpack");
 environment.plugins.prepend(
