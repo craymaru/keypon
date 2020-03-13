@@ -1,5 +1,4 @@
 const { environment } = require("@rails/webpacker");
-const merge = require("webpack-merge");
 
 // Require jQuery and Bootstap javascripts
 const webpack = require("webpack");
@@ -10,17 +9,8 @@ environment.plugins.prepend(
     jQuery: "jquery",
     jquery: "jquery",
     "window.jQuery": "jquery",
-    Popper: ["popper.js", "default"] // for Bootstrap 4
+    // "jQuery.tagsinput": "bootstrap-tagsinput",
+    Popper: "popper.js"
   })
 );
-
-const envConfig = (module.exports = environment);
-const aliasConfig = (module.exports = {
-  resolve: {
-    alias: {
-      jquery: "jquery/src/jquery"
-    }
-  }
-});
-
-module.exports = merge(envConfig.toWebpackConfig(), aliasConfig);
+module.exports = environment;
