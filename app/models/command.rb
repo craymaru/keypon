@@ -5,7 +5,7 @@ class Command < ApplicationRecord
 
   # VALIDATES
   validates :keymap_id, presence: true
-  validates :category_name, length: { maximum: 24 }
-  validates :name, length: { maximum: 16 }
-  validates :when, length: { maximum: 16 }
+  validates :category_name, length: { maximum: 128 }
+  validates :name, length: { maximum: 64 }
+  validates :when, length: { maximum: 64 }
 end
