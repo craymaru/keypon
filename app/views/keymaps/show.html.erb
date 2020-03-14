@@ -68,7 +68,6 @@
             <th scope="col" style="width:40%">Command</th>
             <th scope="col" style="width:35%">Keybinding</th>
             <th scope="col" style="width:20%">When</th>
-            <th scope="col" style="width:20%"><%# Bottons %></th>
           </tr>
         </thead>
         <tbody>
@@ -91,12 +90,14 @@
               <td><%= command.name %></td>
               <td><%= command.keybindings[0].name %></td>
               <td><%= command.when %></td>
-              <td>
-                <%# TO DELETE %>
-                <%= link_to command_path(command), method: :delete, remote: true do %>
-                  <i class="far fa-trash-alt"></i>
-                <% end %>
-              </td>
+              <% if user_signed_in? and command.keymap.user == current_user %>
+                <td>
+                  <%# TO DELETE %>
+                  <%= link_to command_path(command), method: :delete, remote: true do %>
+                    <i class="far fa-trash-alt"></i>
+                  <% end %>
+                </td>
+              <% end %>
             </tr>
           <% end %>
         </tbody>
@@ -105,49 +106,49 @@
   </div>
 </div>
 <% if current_user == @keymap.user %>
-<%# COMMAND IMPUT BUTTON - MODAL %>
-<div class="row">
-  <div class="col-12 mt-3">
-    <div class="text-center">
-      <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#commandImputModal">
-        <i class="far fa-window-maximize"></i>
-        New Keybind
-      </button>
-    </div>
-  </div>
-</div>
-<%# COMMAND IMPUT FORM - MODAL %>
-<div class="modal fade bottom show" id="commandImputModal" tabindex="-1" role="dialog" aria-labelledby="commandImputModalLabel" aria-hidden="false">
-  <div class="modal-dialog modal-full-height modal-bottom" role="dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="commandImputModalLabel">New Keybind</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
+  <%# COMMAND IMPUT BUTTON - MODAL %>
+  <div class="row">
+    <div class="col-12 mt-3">
+      <div class="text-center">
+        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#commandImputModal">
+          <i class="far fa-window-maximize"></i>
+          New Keybind
         </button>
       </div>
-      <%= form_with scope: :command, url: commands_path(keymap_id: @keymap.id), local: true do |form| %>
-        <div class="modal-body row">
-          <div class="form-group">
-          </div>
-          <div class="col-2">
-            <%= form.text_field :category_name, class: "form-control", placeholder: "Category" %>
-          </div>
-          <div class="col-4">
-            <%= form.text_field :name, class: "form-control", placeholder: "Command Name" %>
-          </div>
-          <div class="col-3">
-            <%= form.text_field :keybinding_name, class: "form-control", placeholder: "Keybinding" %>
-          </div>
-          <div class="col-3">
-            <%= form.text_field :when, class: "form-control", placeholder: "When" %>
-          </div>
-        </div>
-        <div class="modal-footer">
-          <%= form.button 'Submit', type: 'submit', onclick: 'submit()', id: 'customButton', class: "btn btn-primary"%>
-        </div>
-      <% end %>
     </div>
   </div>
-</div>
+  <%# COMMAND IMPUT FORM - MODAL %>
+  <div class="modal fade bottom show" id="commandImputModal" tabindex="-1" role="dialog" aria-labelledby="commandImputModalLabel" aria-hidden="false">
+    <div class="modal-dialog modal-full-height modal-bottom" role="dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="commandImputModalLabel">New Keybind</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <%= form_with scope: :command, url: commands_path(keymap_id: @keymap.id), local: true do |form| %>
+          <div class="modal-body row">
+            <div class="form-group">
+            </div>
+            <div class="col-2">
+              <%= form.text_field :category_name, class: "form-control", placeholder: "Category" %>
+            </div>
+            <div class="col-4">
+              <%= form.text_field :name, class: "form-control", placeholder: "Command Name" %>
+            </div>
+            <div class="col-3">
+              <%= form.text_field :keybinding_name, class: "form-control", placeholder: "Keybinding" %>
+            </div>
+            <div class="col-3">
+              <%= form.text_field :when, class: "form-control", placeholder: "When" %>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <%= form.button 'Submit', type: 'submit', onclick: 'submit()', id: 'customButton', class: "btn btn-primary"%>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
 <% end %>
