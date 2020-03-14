@@ -23,11 +23,11 @@ if Rails.env.production?
 else
   # LOCAL
   Shrine.storages = {
-    cache: Shrine::Storage::FileSystem.new("public", prefix: "images/uploads/cache"),
-    store: Shrine::Storage::FileSystem.new("public", prefix: "images/uploads/store"),
+    cache: Shrine::Storage::FileSystem.new("public", prefix: "uploads/cache"),
+    store: Shrine::Storage::FileSystem.new("public", prefix: "uploads/store"),
   }
 end
 
 # DEFINE PLUGINS
 Shrine.plugin :activerecord
-Shrine.plugin :cached_attachment_data # for forms
+Shrine.plugin :cached_attachment_data
