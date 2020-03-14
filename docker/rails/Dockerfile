@@ -38,7 +38,6 @@ COPY Gemfile .
 COPY Gemfile.lock .
 RUN bundle install -j4
 
-
 COPY . /app
 RUN yarn install --check-files
 RUN rails webpacker:install
@@ -48,8 +47,9 @@ RUN bundle install -j4
 RUN cp /app/docker/rails/database.yml /app/config/database.yml
 
 # FOR PRODUCTION ENV
+RUN rails yarn:install
+RUN rails assets:precompile
 RUN rails webpacker:compile
-# RUN rails assets:precompile
 
 EXPOSE 3000
 
