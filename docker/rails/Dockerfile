@@ -27,11 +27,6 @@ ENV BUNDLE_APP_CONFIG=$BUNDLE_PATH\
   BUNDLE_BIN=$BUNDLE_PATH/bin
 ENV PATH /app/bin:$BUNDLE_BIN:$PATH
 
-ARG RAILS_ENV
-ARG RAILS_MASTER_KEY
-ENV RAILS_ENV ${RAILS_ENV}
-ENV RAILS_MASTER_KEY ${RAILS_MASTER_KEY}
-
 WORKDIR /app
 
 COPY package.json .
@@ -53,6 +48,11 @@ RUN bundle install -j4
 RUN cp /app/docker/rails/database.yml /app/config/database.yml
 
 # FOR PRODUCTION ENV
+ARG RAILS_ENV
+ARG RAILS_MASTER_KEY
+ENV RAILS_ENV ${RAILS_ENV}
+ENV RAILS_MASTER_KEY ${RAILS_MASTER_KEY}
+
 RUN RAILS_ENV=production rails assets:precompile
 RUN RAILS_ENV=production rails webpacker:compile
 
