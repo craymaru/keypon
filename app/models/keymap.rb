@@ -39,8 +39,8 @@ class Keymap < ApplicationRecord
   validates :user_id, presence: true
   validates :name,
             presence: true,
-            length: { minimum: 2, maximum: 64 }
-  validates :version, length: { maximum: 16 }
-  validates :introduction, length: { maximum: 500 }
+            length: { minimum: 2, maximum: 128 }
+  validates :version, length: { maximum: 64 }
+  validates :introduction, length: { maximum: 1000 }
   validates :status, presence: true
 end
