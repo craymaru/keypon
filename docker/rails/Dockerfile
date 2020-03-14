@@ -47,9 +47,8 @@ RUN bundle install -j4
 
 RUN cp /app/docker/rails/database.yml /app/config/database.yml
 
-# RUN rails webpacker:compile
-
 # FOR PRODUCTION ENV
+RUN rails webpacker:compile
 # RUN rails assets:precompile
 
 EXPOSE 3000
