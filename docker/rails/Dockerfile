@@ -45,6 +45,8 @@ RUN rails webpacker:install
 RUN yarn install --check-files
 RUN bundle install -j4
 
+COPY ./config/webpack /app/config/webpack
+RUN cat /app/config/webpack/environment.js
 RUN cp /app/docker/rails/database.yml /app/config/database.yml
 
 # FOR PRODUCTION ENV
