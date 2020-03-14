@@ -48,8 +48,7 @@ RUN cp /app/docker/rails/database.yml /app/config/database.yml
 
 # FOR PRODUCTION ENV
 RUN rails yarn:install
-RUN rails assets:precompile
-RUN rails webpacker:compile
+RUN NODE_ENV=production rails webpacker:compile
 
 EXPOSE 3000
 
