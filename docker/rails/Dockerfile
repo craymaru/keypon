@@ -36,20 +36,18 @@ RUN yarn install --check-files
 RUN gem install bundler
 COPY Gemfile .
 COPY Gemfile.lock .
-RUN bundle install -j4
 
 COPY . /app
-RUN yarn install --check-files
-RUN rails webpacker:install
 RUN rails action_text:install
+RUN rm -rf bin/webpack
+RUN rails webpacker:install
+RUN yarn install --check-files
 RUN bundle install -j4
 
 RUN cp /app/docker/rails/database.yml /app/config/database.yml
 
 # FOR PRODUCTION ENV
-RUN rails yarn:install
-RUN yarn install --check-files
-RUN NODE_ENV=production rails webpacker:compile
+RUN rails webpacker:compile
 
 EXPOSE 3000
 
