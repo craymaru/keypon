@@ -36,6 +36,7 @@ RUN yarn install --check-files
 RUN gem install bundler
 COPY Gemfile .
 COPY Gemfile.lock .
+RUN bundle install -j4
 
 COPY . /app
 RUN rails action_text:install
