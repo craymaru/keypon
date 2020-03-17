@@ -21,16 +21,23 @@ class KeymapsController < ApplicationController
     puts "--------------------------"
 
     # SPLIT BY SPACES
-    if params[:q].present?
-      keywords = params[:q][:name_or_introduction_or_tags_name_cont_all].split(/\p{blank}/)
-    end
+    # if params[:q]
+    #   if params[:q][:name_or_introduction_or_tags_name_cont_all]
+    #     keywords = params[:q][:name_or_introduction_or_tags_name_cont_all].split(/\p{blank}/)
+    #   end
+    # end
+
+    keywords = params[:q]
 
     puts "-- DEBUG -----------------"
     puts "keywords:"
     puts keywords
     puts "--------------------------"
 
-    @q = Keymap.ransack(name_or_introduction_or_tags_name_cont_all: keywords)
+    # @q = Keymap.ransack(name_or_introduction_or_tags_name_cont_all: keywords)
+    
+    @q = Keymap.order(params[:sort]).ransack(keywords)
+    @q.sorts = 'updated_at desc' if @q.sorts.empty?
     @keymaps = @q.result(distinct: true).where(status: "Pubric")
   end
 

@@ -32,7 +32,7 @@ This application is created to record and share key bindings. I hope that this a
 | actiontext            | 6.0.2-1 | yarn     |                           |
 | activestorage         | 6.0.2   | yarn     |                           |
 | devise                | 4.7.1   | gem      | 認証管理                  |
-| mpressionist          | 1.6.1   | gem      | PV数調査                  |
+| impressionist          | 1.6.1   | gem      | PV数調査                  |
 | ransack               | 2.3.2   | gem      | 検索機能強化              |
 | spring-watcher-listen | 2.0.1   | gem      | (dev) bin読み込み速度向上 |
 | guard-livereload      | 2.5.2   | gem      | (dev) 自動プレビュー      |
@@ -72,50 +72,85 @@ This application is created to record and share key bindings. I hope that this a
 
 
 
-## デプロイ環境構成 | Deployment Env.
+# デプロイ構成 | Deployment Stracture
 
-### サーバー構成
-
-* 図に変える
-
-| Name            | Role     |
-| ----------------|--------- |
-| Nginx           | Web Server         |
-| Docker          |                    |
-
-
-### AWS
+## AWS
 * デプロイには`Docker`を使用するため、`Amazon ECS` を採用しました。
 
 | Name              | Role                                             |
 | ----------------- | ------------------------------------------------ |
-| ECR        | コンテナレジストリ                               |
-| ECS        | コンテナデプロイ                                 |
+| ECR               | コンテナレジストリ                               |
+| ECS               | コンテナデプロイ                                 |
 | -- CloudFormation |                                                  |
 | -- Auto Scaling   |                                                  |
 | -- EC2            | 学習のため `Fargate` は使用せず `EC2` で自己管理 |
 | -- RDS            |                                                  |
 | -- ALB            |                                                  |
 
-### Domains
+<a href="https://i.imgur.com/bGhcUFC.png" style="margin:0.5rem">
+<div align="center"><img src="https://i.imgur.com/bGhcUFC.png" width="800px"/></div>
+</a>
+
+
+## AWS
+* デプロイには`Docker`を使用するため、`Amazon ECS` を採用しました。
+
+| Name              | Role                                             |
+| ----------------- | ------------------------------------------------ |
+| ECS               | コンテナデプロイ                                 |
+| -- CloudFormation |                                                  |
+| -- Auto Scaling   | コンテナのオートスケーリング                                       |
+| -- EC2            | 学習のため `Fargate` は使用せず `EC2` で自己管理 |
+| -- ALB            | ロードバランシング                                                 |
+| -- InternetGateway |ゲートウェイ|
+| RDS            | データベース                                                 |
+| VPC|ネットワーク|
+| S3 | コンテナがエフェメラルなため 画像ファイルの永続化 |
+| CloudWatch|コンテナのリアルタイムロギング|
+
+
+## Domain & DNS
 | Name                                                                                                               | Role            |
 | ------------------------------------------------------------------------------------------------------------------ | --------------- |
 |　Elastic IP            | Global IP                                                 |
 | Route 53   | Domain Name Server                                     |
-| <img src="https://porkbun.com/partners/logos/porkbun.comphpPkl2eU.svg" width="22"/>[Porkbun](https://porkbun.com/) | Domain Reseller                           |
+| <img src="https://porkbun.com/partners/logos/porkbun.comphpPkl2eU.svg" width="22"/>[Porkbun](https://porkbun.com/) | Domain Reseller    
+<a href="https://imgur.com/rVbSIzA.png"  style="margin:0.5rem">
+<div align="center"><img src="https://imgur.com/rVbSIzA.png" width="800px"/></div>
+</a>
 
+
+
+## Containers
+
+| Container Name    | Role | Memo                    |
+| ----------------- | ---- | ----------------------- |
+| Nginx             | Web  | Production, Development |
+| Rails 6 with Puma | App  | Production, Development |
+| MySQL             | DB   | Only Development        |
+<a href="https://imgur.com/KmDq53X.png" style="margin:0.5rem">
+<div align="center"><img src="https://imgur.com/KmDq53X.png" width="800px"/></div>
+</a>
 
 
 # ローカル開発環境 | Development Env.
 
 * 当初は開発環境でもメリットを活かすため `Docker` を採用しましたが、`Volumeマウント`のパフォーマンスとRailsコマンド実行時の遅延を理由に、`Vagrant` 環境を新しく作り、開発を移行しました
 
-### Host Maschine
+## Host Maschine
 
-Name            | Version  |
---------------- | -------- |
-MacOS Catalina  | 10.15.3  |
-docker          | 19.03.5  |
-docker-compose  | 1.25.4   |
-VirtualBox      | 6.1.4    |
-Vagrant         | 2.2.7    |
+| Name           | Version |
+| -------------- | ------- |
+| MacOS Catalina | 10.15.3 |
+| docker         | 19.03.5 |
+| docker-compose | 1.25.4  |
+| VirtualBox     | 6.1.4   |
+| Vagrant        | 2.2.7   |
+
+## Webpacker
+* 従来の app/assets 以下の読み込みではなく `Rails 6` で標準化された `Webpacker` を採用して JavaScript、CSS、Static な Image をプロバイドしています。
+
+## 
+
+
+# ライセンス

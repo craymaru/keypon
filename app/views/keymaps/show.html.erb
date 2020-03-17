@@ -6,6 +6,10 @@
     <span class="badge badge-primary mr-1"><%= @keymap.version %></span>
     <span class="badge badge-dark mr-2"><%= @keymap.status %></span>
     <%= render 'keymaps/favorite', keymap: @keymap %>
+    <div class="ml-2">
+      <i class="fas fa-eye fa-lg"></i>
+      <span class=""><%= @keymap.impressionist_count %></span>
+    </div>
   </div>
 </div>
 <%# DATES %>
