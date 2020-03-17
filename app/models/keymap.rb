@@ -35,7 +35,7 @@ class Keymap < ApplicationRecord
     (self.impressionist_count * 1) + (self.favorites.count * 128)
   end
 
-  # RANSACKER
+  # RANSACKER FAVORITES
   ransacker :favorites_count do
     query = "(SELECT COUNT(favorites.keymap_id) FROM favorites where favorites.keymap_id = keymaps.id GROUP BY favorites.keymap_id)"
     Arel.sql(query)
