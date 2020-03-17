@@ -13,7 +13,24 @@
     <% end %>
   </div>
 </div>
-<%#  %>
+<%# SORT BUTTONS %>
+<div class="btn-group btn-group-toggle" data-toggle="buttons">
+  <%= sort_link(
+      @q, :name, "Name",
+      { default_order: :desc },
+      { class: "sort_link btn btn-primary" }
+    ) %>
+  <%= sort_link(
+      @q, :favorites_count, "Favorites",
+      { default_order: :desc },
+      { class: "sort_link btn btn-primary" }
+    ) %>
+  <%= sort_link(
+      @q, :updated_at, "Released",
+      { default_order: :desc },
+      { class: "sort_link btn btn-primary " }
+    ) %>
+</div>
 <%# KEYMAP LIST %>
 <div class="row mt-2">
   <div class="col-12">
