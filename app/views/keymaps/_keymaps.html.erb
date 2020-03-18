@@ -14,7 +14,7 @@
               </small>
             </h4>
             <div>
-              <%= keymap.introduction %>
+              <%= keymap.user.name ? keymap.user.name : keymap.user.username %>
             </div>
           </div>
           <span class="col-md-3">
@@ -33,7 +33,7 @@
             </div>
             <div>
               <i class="fas fa-eye fa-sm"></i>
-              <span class=""><%= keymap.impressionist_count %></span>
+              <span class=""><%= keymap.impressionist_count(:filter=>:session_hash) %></span>
             </div>
           </div>
           <div class="col-md-2">
