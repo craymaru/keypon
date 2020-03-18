@@ -23,7 +23,6 @@ require("typeahead.js");
 
 // Bootstrap4
 import "bootstrap";
-import "../stylesheets/application";
 
 // Font Awesome
 import "@fortawesome/fontawesome-free/js/all";
@@ -42,8 +41,12 @@ import "../packs/search_command.by_quicksearch.js";
 require("trix");
 require("@rails/actiontext");
 
-import "../stylesheets/actiontext";
-
 // import "bootstrap-material-design";
 
+
+// STYLESHEETS
+import "../stylesheets/application";
+import "../stylesheets/actiontext";
+
+// IMAGES
 const images = require.context("../images/", true);

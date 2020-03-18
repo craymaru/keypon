@@ -10,7 +10,7 @@
     <%# - PAGEVIEWS %>
     <div class="ml-2">
       <i class="fas fa-eye fa-lg"></i>
-      <span class=""><%= @keymap.impressionist_count %></span>
+      <span class=""><%= @keymap.impressionist_count(:filter=>:session_hash) %></span>
     </div>
     <%# - FAVORITES %>
     <div class="ml-2">
@@ -46,13 +46,15 @@
   </div>
 <% end %>
 <%# CONTENT %>
-<div class="row introduction">
-  <div class="card text-white mt-2 mb-3" style="width:100%">
-    <div class="card-body">
-      <div class="card-text"><%= @keymap.content %></div>
+<% if 1 < @keymap.content.to_plain_text.length %>
+  <div class="row introduction">
+    <div class="card text-white mt-2 mb-3" style="width:100%">
+      <div class="card-body">
+        <div class="card-text"><%= @keymap.content %></div>
+      </div>
     </div>
   </div>
-</div>
+<% end %>
 <%# KEYBOARD IMAGE %>
 <%# <div class="row">
   <div class="keyboard">
