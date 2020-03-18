@@ -42,7 +42,7 @@ class UsersController < ApplicationController
     if @user.update(user_params)
       redirect_back(fallback_location: dashboard_path, success: "Successfully Updated!")
     else
-      @user = current_user
+      flash[:danger] = "Save Error!"
       render :settings
     end
   end

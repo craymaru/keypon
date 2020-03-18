@@ -2,7 +2,6 @@
   <%= link_to keymap_path(keymap), class: "list-group-item" do %>
     <li class="media">
       <div class="media-left hidden-xs">
-        <img class="gravatar" src="">
         <%= image_tag (keymap.user.image_url(:small) || "#{asset_pack_path 'media/images/blank.png'}"), class: "border border-dark rounded user-image-md", fallback: "no_image.jpg" %>
       </div>
       <span class="media-body">
@@ -38,9 +37,6 @@
             </div>
           </div>
           <div class="col-md-2">
-            <div>
-              Released
-            </div>
             <div>
               <strong>
                 <%= time_ago_in_words(keymap.updated_at) %> ago
