@@ -1,6 +1,6 @@
 class CreateRates < ActiveRecord::Migration[5.2]
 
-  def self.change
+  def self.up
     create_table :rates do |t|
       t.belongs_to :rater
       t.belongs_to :rateable, :polymorphic => true

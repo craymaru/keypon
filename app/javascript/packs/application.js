@@ -3,9 +3,9 @@
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
 
-// ratyrate
-import "../packs/jquery.raty";
-import "../packs/ratyrate";
+// Fade Flashes
+import "../packs/jquery.raty.js";
+import "../packs/ratyrate.js.erb";
 
 require("@rails/ujs").start();
 require("turbolinks").start();

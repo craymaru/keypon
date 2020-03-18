@@ -314,12 +314,16 @@ button.list-group-item:focus {
 }
 
 // HEART
-.active-heart {
+.active-heart a,
+.active-heart a:hover {
   color: #ff3060;
+  text-decoration: none;
 }
 
-.inactive-heart {
-  color: #4a4a4a;
+.inactive-heart a,
+.inactive-heart a:hover,{
+  color: #4a4a5a;
+  text-decoration: none;
 }
 
 // STAR

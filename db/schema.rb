@@ -138,10 +138,16 @@ ActiveRecord::Schema.define(version: 2020_03_17_191430) do
     t.index ["rateable_type", "rateable_id"], name: "index_overall_averages_on_rateable_type_and_rateable_id"
   end
 
-  create_table "posts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
-    t.string "title"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+  create_table "rates", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.bigint "rater_id"
+    t.string "rateable_type"
+    t.bigint "rateable_id"
+    t.float "stars", null: false
+    t.string "dimension"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["rateable_type", "rateable_id"], name: "index_rates_on_rateable_type_and_rateable_id"
+    t.index ["rater_id"], name: "index_rates_on_rater_id"
   end
 
   create_table "rating_caches", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|

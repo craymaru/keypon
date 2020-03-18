@@ -1,4 +1,8 @@
 class Keymap < ApplicationRecord
+
+  # RATYRATE
+  ratyrate_rateable "star"
+
   # RichText
   has_rich_text :content
 
@@ -7,9 +11,6 @@ class Keymap < ApplicationRecord
 
   # IMPRESSIONIST
   is_impressionable
-
-  # RATYRATE
-  ratyrate_rateable "reliability"
 
   # ASSOCIATIONS
   belongs_to :user
