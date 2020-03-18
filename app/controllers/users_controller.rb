@@ -16,20 +16,10 @@ class UsersController < ApplicationController
   end
 
   def dashboard
-    # REDIRECT
-    if current_user.blank?
-      redirect_to root_path
-    end
-
     @user = current_user
   end
 
   def settings
-    # REDIRECT
-    if current_user.blank?
-      redirect_to root_path
-    end
-
     @user = current_user
   end
 
