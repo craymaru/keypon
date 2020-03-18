@@ -79,3 +79,6 @@ gem "impressionist"
 
 # S3
 gem "aws-sdk", "~> 3"
+
+# Adds ratyrate
+gem "ratyrate"

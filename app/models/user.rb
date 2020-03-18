@@ -8,12 +8,15 @@ class User < ApplicationRecord
   has_many :keymaps
   has_many :favorites, dependent: :destroy
   has_many :favorite_keymaps, through: :favorites, source: :keymap
-  has_many :rates, dependent: :destroy
+  # has_many :rates, dependent: :destroy
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+  # RATYRATE
+  ratyrate_rater
 
   # VALIDATES
   validates :email,
