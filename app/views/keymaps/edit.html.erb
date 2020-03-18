@@ -2,7 +2,7 @@
   <div class="col-sm-12">
     <h3>Edit Keymap</h3>
     <%# ERRORS %>
-    <%= render 'keymaps/errors', keymap: @keymap %>
+    <%= render 'layouts/errors', article: @keymap %>
     <%# FORMS %>
     <%= form_with scope: :keymap, url: keymap_path(@keymap), method: :put, local: true do |f| %>
       <fieldset>
