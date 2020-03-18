@@ -1,10 +1,10 @@
 <%# KEYMAPS / NEW %>
 <div class="row mt-4">
-  <div class="col-sm-12">
+  <div class="col-12">
     <h3>New Keymap</h3>
-    <%# ERRORS %>
-    <%= render 'keymaps/errors', keymap: @keymap %>
-    <%# FORMS %>
+    <%# DISPLAY ERROR %>
+    <%= render 'layouts/errors', article: @keymap %>
+    <%# FORM %>
     <%= form_with scope: :keymap, url: keymaps_path, method: :post, local: true do |f| %>
       <fieldset>
         <%= render 'keymaps/form', f: f %>

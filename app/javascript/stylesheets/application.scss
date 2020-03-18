@@ -13,13 +13,18 @@
   font-family: "M PLUS Rounded 1c";
 }
 
-body {
-  background: linear-gradient(269deg, #342828, #2b3029, #283334, #2e2834, #34282f);
-  background-size: 1000% 1000%;
+ol, ul, dl {
+  margin-top: 0;
+  margin-bottom: 0;
+}
 
-  -webkit-animation: KeyponGradient 46s ease infinite;
-  -moz-animation: KeyponGradient 46s ease infinite;
-  animation: KeyponGradient 46s ease infinite;
+body {
+  background: linear-gradient(269deg, #342828, #292d27, #2b2834, #34282f);
+  background-size: 500% 500%;
+
+  -webkit-animation: KeyponGradient 20s ease infinite;
+  -moz-animation: KeyponGradient 20s ease infinite;
+  animation: KeyponGradient 20s ease infinite;
 
   @-webkit-keyframes KeyponGradient {
     0% {
@@ -210,26 +215,24 @@ h6 {
 // FLASHES
 // -------------------------------
 .alert {
+  z-index: 2;
+  border: none;
+  color: #fff;
+  font-weight: 600;
+  font-size: 120%;
   position: absolute;
-  z-index: 99;
   opacity: 0.85;
-  height: auto;
-  width: auto;
-  left: 0;
-  right: 0;
-  margin: 1em;
+  margin-top: 1em;
+  width: fit-content;
+  // top: 50%;
+  left: 50%;
+  transform: translate(-50%, 0%);
 }
 
 .alert-success {
   background-color: #105d5d;
 }
 
-.alert {
-  border: none;
-  color: #fff;
-  font-weight: 600;
-  font-size: 120%;
-}
 
 .text-center {
   text-align: center !important;

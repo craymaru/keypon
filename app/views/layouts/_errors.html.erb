@@ -1,0 +1,10 @@
+    <% if article.errors.any? %>
+  <div id="error_explanation" class="alert alert-danger p-4">
+    <h4><%= article.errors.count %> errors prohibited this article from being saved:</h4>
+    <ul>
+      <% article.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
