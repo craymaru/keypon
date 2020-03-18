@@ -87,6 +87,13 @@ h6 {
 // -------------------------------
 // BOOTSTRAP / BOOTSWATCH
 // -------------------------------
+.row,
+.col,
+[class*="col-"] {
+  margin: 0;
+  padding: 0;
+}
+
 .bg-dark {
   background-color: rgba(30, 30, 30, 0.2) !important;
 }
@@ -314,14 +321,16 @@ button.list-group-item:focus {
 }
 
 // HEART
+.active-heart,
 .active-heart a,
 .active-heart a:hover {
   color: #ff3060;
   text-decoration: none;
 }
 
+.inactive-heart,
 .inactive-heart a,
-.inactive-heart a:hover,{
+.inactive-heart a:hover {
   color: #4a4a5a;
   text-decoration: none;
 }
