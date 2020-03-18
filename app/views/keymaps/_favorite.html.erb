@@ -2,13 +2,17 @@
   <i class="fas fa-heart active-heart fa-lg"></i>
   <span class="ml-1 active-heart"><%= keymap.favorites.count %></span>
 <% elsif keymap.favorite_by?(current_user) %>
-  <%= link_to keymap_favorites_path(keymap), method: :delete, id: :"js-favorite-button-for-keymap-#{keymap.id}" do %>
-    <i class="fas fa-heart active-heart fa-lg"></i>
-  <% end %>
-  <span class="ml-1 active-heart"><%= keymap.favorites.count %></span>
+  <div class="active-heart">
+    <%= link_to keymap_favorites_path(keymap), method: :delete, id: :"js-favorite-button-for-keymap-#{keymap.id}" do %>
+      <i class="fas fa-heart fa-lg"></i>
+      <span><%= keymap.favorites.count %></span>
+    <% end %>
+  </div>
 <% else %>
-  <%= link_to keymap_favorites_path(keymap), method: :post, id: :"js-favorite-button-for-keymap-#{keymap.id}" do %>
-    <i class="fas fa-heart inactive-heart fa-lg"></i>
-  <% end %>
-  <span class="ml-1 inactive-heart"><%= keymap.favorites.count %></span>
+  <div class="inactive-heart">
+    <%= link_to keymap_favorites_path(keymap), method: :post, id: :"js-favorite-button-for-keymap-#{keymap.id}" do %>
+      <i class="fas fa-heart inactive-heart fa-lg"></i>
+      <span><%= keymap.favorites.count %></span>
+    <% end %>
+  </div>
 <% end %>

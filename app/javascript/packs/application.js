@@ -3,6 +3,10 @@
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
 
+// Fade Flashes
+import "../packs/jquery.raty.js";
+import "../packs/ratyrate.js.erb";
+
 require("@rails/ujs").start();
 require("turbolinks").start();
 require("@rails/activestorage").start();
@@ -34,17 +38,12 @@ import "../packs/fade_flashes.js";
 import "../packs/jquery.quicksearch.js";
 import "../packs/search_command.by_quicksearch.js";
 
-
-
 // Action Text
-require("trix")
-require("@rails/actiontext")
+require("trix");
+require("@rails/actiontext");
 
-import "../stylesheets/actiontext"
-
+import "../stylesheets/actiontext";
 
 // import "bootstrap-material-design";
-
-
 
 const images = require.context("../images/", true);

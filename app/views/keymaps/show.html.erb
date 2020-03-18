@@ -1,14 +1,24 @@
 <%# TITLES %>
 <div class="row mt-3">
+  <%# TITLE %>
   <h3><%= @keymap.name %></h3>
-  <%# VERSION %>
   <div class="d-flex align-items-end ml-2 mb-3 mr-2">
+    <%# - VERSION %>
     <span class="badge badge-primary mr-1"><%= @keymap.version %></span>
+    <%# - STATUS %>
     <span class="badge badge-dark mr-2"><%= @keymap.status %></span>
-    <%= render 'keymaps/favorite', keymap: @keymap %>
+    <%# - PAGEVIEWS %>
     <div class="ml-2">
       <i class="fas fa-eye fa-lg"></i>
       <span class=""><%= @keymap.impressionist_count %></span>
+    </div>
+    <%# - FAVORITES %>
+    <div class="ml-2">
+      <%= render 'keymaps/favorite', keymap: @keymap %>
+    </div>
+    <%# - STAR %>
+    <div class="ml-2">
+      <%= rating_for @keymap, "star", disable_after_rate: false, enable_half: true %>
     </div>
   </div>
 </div>
