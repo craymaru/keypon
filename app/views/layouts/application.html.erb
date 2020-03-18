@@ -112,9 +112,13 @@
       </nav>
     </header>
     <%# MAIN %>
-    <div class="row">
-      <%# FLASH MESSAGE %>
-      <%= render partial: "layouts/flashes", flash: flash %>
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <%# FLASH MESSAGE %>
+          <%= render partial: "layouts/flashes", flash: flash %>
+        </div>
+      </div>
     </div>
     <main>
       <%# CONTENTS %>
