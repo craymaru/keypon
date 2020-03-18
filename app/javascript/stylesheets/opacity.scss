@@ -1,3 +1,6 @@
-@for $i from 1 through 100 {
+// -------------------------------
+// OPACITY opacity-1 to 100
+// -------------------------------
+@for $i from 0 through 100 {
   .opacity-#{$i} {opacity: $i * 0.01;}
 }
