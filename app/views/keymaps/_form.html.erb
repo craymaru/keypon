@@ -35,14 +35,14 @@
   <legend>Status</legend>
   <div class="form-check">
     <label class="form-check-label">
-      <%= f.radio_button :status, "Public", class: "form-check-input", checked:true %>
-      Public --- This keymap will be visible to everyone.
+      <%= f.radio_button :status, "Private", class: "form-check-input" %>
+      Private
     </label>
   </div>
   <div class="form-check">
     <label class="form-check-label">
-      <%= f.radio_button :status, "Private", class: "form-check-input" %>
-      Private
+      <%= f.radio_button :status, "Public", class: "form-check-input", checked:true %>
+      Public - This keymap will be visible to everyone.
     </label>
   </div>
   <div class="form-check">
