@@ -30,10 +30,10 @@
       <%= render 'keymaps/keymaps', keymaps: @user.keymaps.where(status: "Draft") %>
     </div>
   <% end %>
-  <% if @user.keymaps.where(status: "Pubric").present? %>
-    <h4 class="text-success mt-3">Pubric</h4>
+  <% if @user.keymaps.where(status: "Public").present? %>
+    <h4 class="text-success mt-3">Public</h4>
     <div class="col-12">
-      <%= render 'keymaps/keymaps', keymaps: @user.keymaps.where(status: "Pubric") %>
+      <%= render 'keymaps/keymaps', keymaps: @user.keymaps.where(status: "Public") %>
     </div>
   <% end %>
   <% if @user.keymaps.where(status: "Private").present? %>

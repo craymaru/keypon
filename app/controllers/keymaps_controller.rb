@@ -35,10 +35,10 @@ class KeymapsController < ApplicationController
     puts "--------------------------"
 
     # @q = Keymap.ransack(name_or_introduction_or_tags_name_cont_all: keywords)
-    
+
     @q = Keymap.order(params[:sort]).ransack(keywords)
-    @q.sorts = 'updated_at desc' if @q.sorts.empty?
-    @keymaps = @q.result(distinct: true).where(status: "Pubric")
+    @q.sorts = "updated_at desc" if @q.sorts.empty?
+    @keymaps = @q.result(distinct: true).where(status: "Public")
   end
 
   def new
