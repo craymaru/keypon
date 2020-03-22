@@ -4,7 +4,7 @@
 </a>
 
 
-# デザイン | Design
+# KEYPON とは？ | About KEYPON
 
 > keypon.io
 > Saving keybindings, keep on with you!
@@ -13,7 +13,8 @@
 このアプリケーションはキーバインディングを記録し共有するために作成しました🐈
 エンジニア、デザイナー、ゲーマーなど普段パソコンで作業する方が使用していただけるアプリになることを願っております🙏
 
-This application is created to record and share key bindings. I hope that this application will be used by engineers, designers, gamers, etc. who usually work on PC / Mac.
+This application is created to record and share key bindings. I hope that this application will be used by engineers, designers, gamers, etc. who usually work on PC / Mac. 
+<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vS-CdsOUcygZkyWNG8We8KDC5bbtigVzx3Q_wG4GxDm3RT3erKvliGaREnodu9Qbo7EQbthRkdiY6mw/embed" frameborder="0" width="600" height="355" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
 
 # 使用技術 | Technology Uses
 
@@ -74,18 +75,14 @@ This application is created to record and share key bindings. I hope that this a
 
 # デプロイ構成 | Deployment Stracture
 
-## AWS
-* デプロイには`Docker`を使用するため、`Amazon ECS` を採用しました。
+## 大まかな流れ
 
-| Name              | Role                                             |
-| ----------------- | ------------------------------------------------ |
-| ECR               | コンテナレジストリ                               |
-| ECS               | コンテナデプロイ                                 |
-| -- CloudFormation |                                                  |
-| -- Auto Scaling   |                                                  |
-| -- EC2            | 学習のため `Fargate` は使用せず `EC2` で自己管理 |
-| -- RDS            |                                                  |
-| -- ALB            |                                                  |
+| Name     | Role                                                                                                                 |
+| -------- | -------------------------------------------------------------------------------------------------------------------- |
+| GitHub   | ソースコードリポジトリ、ビルドイメージの元となるソース                                                               |
+| CircleCI | Nginx、Rails コンテナのBuild、`ECR`へのPush、<br>CLI経由で`ECS クラスター`上の`サービス`および`タスク`のアップデート |
+| ECR      | コンテナリポジトリ                                                                                                   |
+| EC2      | `Docker` とコンテナたち の実態が走るVM                                                                                       |
 
 <a href="https://i.imgur.com/bGhcUFC.png" style="margin:0.5rem">
 <div align="center"><img src="https://i.imgur.com/bGhcUFC.png" width="800px"/></div>
@@ -93,20 +90,20 @@ This application is created to record and share key bindings. I hope that this a
 
 
 ## AWS
-* デプロイには`Docker`を使用するため、`Amazon ECS` を採用しました。
+* デプロイに`Docker`を使用するため、`Amazon ECS` を採用しました。
 
-| Name              | Role                                             |
-| ----------------- | ------------------------------------------------ |
-| ECS               | コンテナデプロイ                                 |
-| -- CloudFormation |                                                  |
-| -- Auto Scaling   | コンテナのオートスケーリング                                       |
-| -- EC2            | 学習のため `Fargate` は使用せず `EC2` で自己管理 |
-| -- ALB            | ロードバランシング                                                 |
-| -- InternetGateway |ゲートウェイ|
-| RDS            | データベース                                                 |
-| VPC|ネットワーク|
-| S3 | コンテナがエフェメラルなため 画像ファイルの永続化 |
-| CloudWatch|コンテナのリアルタイムロギング|
+| Name               | Role                                              |
+| ------------------ | ------------------------------------------------- |
+| ECS                | コンテナデプロイ                                  |
+| -- CloudFormation  | プロビジョニング                                  |
+| -- Auto Scaling    | コンテナのオートスケーリング                      |
+| -- EC2             | 学習のため `Fargate` は使用せず `EC2` で自己管理  |
+| -- ALB             | ロードバランシング                                |
+| -- InternetGateway | ゲートウェイ                                      |
+| RDS                | `MySQL 5.7` データベース                                  |
+| VPC                | ネットワーク                                      |
+| S3                 | コンテナがエフェメラルなため 画像ファイルの永続化 |
+| CloudWatch         | コンテナのリアルタイムロギング                    |
 
 
 ## Domain & DNS
@@ -149,8 +146,6 @@ This application is created to record and share key bindings. I hope that this a
 
 ## Webpacker
 * 従来の app/assets 以下の読み込みではなく `Rails 6` で標準化された `Webpacker` を採用して JavaScript、CSS、Static な Image をプロバイドしています。
-
-## 
 
 
 # ライセンス
