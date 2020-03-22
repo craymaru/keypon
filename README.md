@@ -81,7 +81,7 @@ This application is created to record and share key bindings. I hope that this a
 | GitHub   | ソースコードリポジトリ、ビルドイメージの元となるソース                                                               |
 | CircleCI | Nginx、Rails コンテナのBuild、`ECR`へのPush、<br>CLI経由で`ECS クラスター`上の`サービス`および`タスク`のアップデート |
 | ECR      | コンテナリポジトリ                                                                                                   |
-| EC2      | `Docker` とコンテナたち の実態が走るVM                                                                                       |
+| EC2      | `Docker` とコンテナプロセスの実体を内包するVM                                                                                       |
 
 <a href="https://i.imgur.com/bGhcUFC.png" style="margin:0.5rem">
 <div align="center"><img src="https://i.imgur.com/bGhcUFC.png" width="800px"/></div>
