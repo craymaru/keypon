@@ -18,13 +18,6 @@
     <%= text_field_tag 'keymap[tag_list]', @keymap.tag_list.join(","), data: {role: "tagsinput"}, class: "form-control"%>
   </div>
 </div>
-<% if false %>
-  <%# INTRODUCTION %>
-  <div class="form-group">
-    <%= f.label :introduction, "Introduction" %>
-    <%= f.text_area :introduction, class: "form-control", rows: "3", placeholder: "Enter keynmap introduction" %>
-  </div>
-<% end %>
 <%# CONTENT %>
 <div class="form-group">
   <%= f.label :content, "Note" %>

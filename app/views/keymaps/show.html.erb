@@ -35,16 +35,6 @@
     <%= render 'keymaps/tags', tag_list: @keymap.tag_list %>
   </div>
 </div>
-<%# INTRODUCTION %>
-<% if false %>
-  <div class="row introduction">
-    <div class="card text-white mt-2 mb-3" style="width:100%">
-      <div class="card-body">
-        <div class="card-text"><%= simple_format(h(@keymap.introduction)) %></div>
-      </div>
-    </div>
-  </div>
-<% end %>
 <%# CONTENT %>
 <% if 1 < @keymap.content.to_plain_text.length %>
   <div class="row introduction">
@@ -144,20 +134,22 @@
           </button>
         </div>
         <%= form_with scope: :command, url: commands_path(keymap_id: @keymap.id), local: true do |form| %>
-          <div class="modal-body row">
-            <div class="form-group">
+          <div class="modal-body">
+            <div class="row form-group">
+              <div class="col-sm-6 p-1">
+                <%= form.text_field :name, class: "form-control", placeholder: "Name *   ex. Select All" %>
+              </div>
+              <div class="col-sm-6 p-1">
+                <%= form.text_field :keybinding_name, class: "form-control", placeholder: "Keybinding *   ex. Cmd + A" %>
+              </div>
             </div>
-            <div class="col-2">
-              <%= form.text_field :category_name, class: "form-control", placeholder: "Category" %>
-            </div>
-            <div class="col-4">
-              <%= form.text_field :name, class: "form-control", placeholder: "Command Name" %>
-            </div>
-            <div class="col-3">
-              <%= form.text_field :keybinding_name, class: "form-control", placeholder: "Keybinding" %>
-            </div>
-            <div class="col-3">
-              <%= form.text_field :when, class: "form-control", placeholder: "When" %>
+            <div class="row">
+              <div class="col-sm-6 p-1">
+                <%= form.text_field :when, class: "form-control", placeholder: "When (optional)" %>
+              </div>
+              <div class="col-sm-6 p-1">
+                <%= form.text_field :category_name, class: "form-control", placeholder: "Category (optional)" %>
+              </div>
             </div>
           </div>
           <div class="modal-footer">
