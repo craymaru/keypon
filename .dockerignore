@@ -2,12 +2,18 @@
 
 /*.log
 
+# Ignore uploaded files in development.
+/storage/*
+!/storage/.keep
+
+# Nodes
 /node_modules
 
-# # Webpacker
+# Webpacker
 /public/assets
 /public/packs
 /public/packs-test
 
-# # Shrine
+# Shrine
 /public/uploads
+
