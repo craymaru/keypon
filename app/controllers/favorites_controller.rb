@@ -2,13 +2,13 @@ class FavoritesController < ApplicationController
   before_action :authenticate_user!, only: %i[create destroy]
   def create
     favorite = current_user.favorites.build(keymap_id: params[:keymap_id])
-    favorite.save!
+    favorite.save
     redirect_back(fallback_location: root_path)
     # redirect_to keymaps_path, success: t(".flash.favorite")
   end
 
   def destroy
-    current_user.favorites.find_by(keymap_id: params[:keymap_id]).destroy!
+    current_user.favorites.find_by(keymap_id: params[:keymap_id]).destroy
     redirect_back(fallback_location: root_path)
     # redirect_to keymaps_path, success: t(".flash.not_favorite")
   end

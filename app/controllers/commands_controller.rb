@@ -24,12 +24,8 @@ class CommandsController < ApplicationController
   def recomend_update
     # STAR
     command = Command.find(params[:id])
-    if command.recomend
-      command.recomend = false
-    else
-      command.recomend = true
-    end
-    if command.save!
+    command.recomend ? command.recomend = false : command.recomend = true
+    if command.save
       redirect_to keymap_path(command.keymap)
     else
     end
