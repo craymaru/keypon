@@ -1,3 +1,11 @@
+<% if keymaps.count == 0 %>
+  <div class="row">
+    <div class="col-12 text-center py-4">
+      
+      <h5 class="text-muted"><i class="fas fa-keyboard fa-lg"></i> There is no Keymaps.</h5>
+    </div>
+  </div>
+<% end %>
 <% keymaps.each do |keymap| %>
   <%= link_to keymap_path(keymap), class: "list-group-item" do %>
     <li class="media">
