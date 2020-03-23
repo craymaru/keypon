@@ -20,9 +20,9 @@
                 <%= keymap.version %>
               </small>
             </h4>
-          </div>
-          <div>
-            <%= keymap.user.name ? keymap.user.name : keymap.user.username %>
+            <div>
+              <%= keymap.user.name.present? ? keymap.user.name : "@" + keymap.user.username %>
+            </div>
           </div>
           <div class="col-md-3">
             <span class="label label-inline label-outline">
