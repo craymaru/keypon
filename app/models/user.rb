@@ -27,6 +27,6 @@ class User < ApplicationRecord
             format: { with: /\A[a-z0-9]+\z/, message: "Only alphanumeric characters." },
             uniqueness: { case_sensitive: :false },
             length: { minimum: 4, maximum: 24 }
-  validates :name, length: { minimum: 1, maximum: 24 }
+  validates :name, length: { maximum: 24 }
   validates :biography, length: { maximum: 500 }
 end

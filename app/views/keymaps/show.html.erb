@@ -1,7 +1,9 @@
 <%# TITLES %>
 <div class="row mt-3">
   <%# TITLE %>
-  <h3><%= @keymap.name %></h3>
+  <h3 class="ml-1">
+    <%= @keymap.name %>
+  </h3>
   <div class="d-flex align-items-end col-sm ml-2 mb-3 mr-2 row">
     <div class="col">
       <%# - VERSION %>
@@ -27,8 +29,10 @@
 <%# DATES %>
 <div class="row">
   <h6 class="ml-1">
-    <span class="mr-2"><%= time_ago_in_words(@keymap.updated_at) %> ago</span>
-    <span class="mr-2">Created: <%= @keymap.created_at.strftime("%d %B %Y at %R") %></span>
+    <span class="badge badge-dark"><%= time_ago_in_words(@keymap.updated_at) %> ago</span>
+    <span class="badge badge-dark"> Created by <%= link_to @keymap.user.name.present? ? @keymap.user.name : "@" + @keymap.user.username, user_path(@keymap.user) %>
+      when <%= @keymap.created_at.strftime("%d %B %Y, %R") %>
+    </span>
   </h6>
 </div>
 <%# TAGS % %>
@@ -63,7 +67,6 @@
     </form>
   </div>
 </div>
-<%# ..SEARCH %>
 <%# COMMANDS %>
 <div class="row mt-2">
   <div class="col-12">
