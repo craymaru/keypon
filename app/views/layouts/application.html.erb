@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>KEYPON</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -29,12 +30,15 @@
             <li class="nav-item <%= is_active_controller_and_action?("users", "dashboard") %>">
               <%= link_to "Dashboard", dashboard_path, class: "nav-link" %>
             </li>
-            <li class="nav-item <%= is_active_controller_and_action?("users", "index") %>">
-              <a class="nav-link disabled" href="#">Users</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link disabled" href="#">Tags</a>
-            </li>
+            <%# DISABLED YET %>
+            <% if false %>
+              <li class="nav-item <%= is_active_controller_and_action?("users", "index") %>">
+                <a class="nav-link disabled" href="#">Users</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled" href="#">Tags</a>
+              </li>
+            <% end %>
           </ul>
           <%# R MENU %>
           <% if user_signed_in? %>

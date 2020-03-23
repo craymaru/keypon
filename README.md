@@ -14,7 +14,6 @@
 エンジニア、デザイナー、ゲーマーなど普段パソコンで作業する方が使用していただけるアプリになることを願っております🙏
 
 This application is created to record and share key bindings. I hope that this application will be used by engineers, designers, gamers, etc. who usually work on PC / Mac. 
-<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vS-CdsOUcygZkyWNG8We8KDC5bbtigVzx3Q_wG4GxDm3RT3erKvliGaREnodu9Qbo7EQbthRkdiY6mw/embed" frameborder="0" width="600" height="355" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
 
 # 使用技術 | Technology Uses
 
@@ -82,7 +81,7 @@ This application is created to record and share key bindings. I hope that this a
 | GitHub   | ソースコードリポジトリ、ビルドイメージの元となるソース                                                               |
 | CircleCI | Nginx、Rails コンテナのBuild、`ECR`へのPush、<br>CLI経由で`ECS クラスター`上の`サービス`および`タスク`のアップデート |
 | ECR      | コンテナリポジトリ                                                                                                   |
-| EC2      | `Docker` とコンテナたち の実態が走るVM                                                                                       |
+| EC2      | `Docker` とコンテナプロセスの実体を内包するVM                                                                                       |
 
 <a href="https://i.imgur.com/bGhcUFC.png" style="margin:0.5rem">
 <div align="center"><img src="https://i.imgur.com/bGhcUFC.png" width="800px"/></div>

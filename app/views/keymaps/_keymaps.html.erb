@@ -1,10 +1,17 @@
+<% if keymaps.count == 0 %>
+  <div class="row">
+    <div class="col-12 text-center py-4">
+      <h5 class="text-muted"><i class="fas fa-keyboard fa-lg"></i> There is no Keymaps.</h5>
+    </div>
+  </div>
+<% end %>
 <% keymaps.each do |keymap| %>
   <%= link_to keymap_path(keymap), class: "list-group-item" do %>
     <li class="media">
       <div class="media-left hidden-xs">
         <%= image_tag (keymap.user.image_url(:small) || "#{asset_pack_path 'media/images/blank.png'}"), class: "border border-dark rounded user-image-md", fallback: "no_image.jpg" %>
       </div>
-      <span class="media-body">
+      <div class="media-body">
         <span class="row">
           <div class="col-md-5">
             <h4>
@@ -14,16 +21,14 @@
               </small>
             </h4>
             <div>
-              <%= keymap.user.name ? keymap.user.name : keymap.user.username %>
+              <%= keymap.user.name.present? ? keymap.user.name : "@" + keymap.user.username %>
             </div>
           </div>
-          <span class="col-md-3">
-            <span title="virtualbox">
-              <span class="label label-inline label-outline">
-                <%= keymap.tag_list %>
-              </span>
-              <span>
-              </span></span></span>
+          <div class="col-md-3">
+            <span class="label label-inline label-outline">
+              <%= keymap.tag_list %>
+            </span>
+          </div>
           <div class="col-md-2">
             <div>
               <div class="active-heart">
@@ -44,7 +49,7 @@
             </div>
           </div>
         </span>
-      </span>
+      </div>
     </li>
   <% end %>
 <% end%>

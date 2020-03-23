@@ -15,27 +15,7 @@ class KeymapsController < ApplicationController
   end
 
   def search
-    puts "-- DEBUG -----------------"
-    puts "params[:q]:"
-    puts params
-    puts "--------------------------"
-
-    # SPLIT BY SPACES
-    # if params[:q]
-    #   if params[:q][:name_or_introduction_or_tags_name_cont_all]
-    #     keywords = params[:q][:name_or_introduction_or_tags_name_cont_all].split(/\p{blank}/)
-    #   end
-    # end
-
     keywords = params[:q]
-
-    puts "-- DEBUG -----------------"
-    puts "keywords:"
-    puts keywords
-    puts "--------------------------"
-
-    # @q = Keymap.ransack(name_or_introduction_or_tags_name_cont_all: keywords)
-
     @q = Keymap.order(params[:sort]).ransack(keywords)
     @q.sorts = "updated_at desc" if @q.sorts.empty?
     @keymaps = @q.result(distinct: true).where(status: "Public")
@@ -47,12 +27,6 @@ class KeymapsController < ApplicationController
 
   def show
     @keymap = Keymap.find(params[:id])
-    # PV COUNT BY IMPRESSIONIST
-    # if session_hash.blank?
-    #   impressionist(@keymap)
-    # else
-    #   impressionist(@keymap, nil, unique: [:session_hash])
-    # end
     @categorized_keymap = @keymap.commands.group_by { |i| i.category_name }
   end
 
@@ -62,10 +36,6 @@ class KeymapsController < ApplicationController
 
   def create
     @keymap = current_user.keymaps.new(keymap_params)
-    puts "-- DEBUG -----------------"
-    puts "params[:q]:"
-    puts keymap_params
-    puts "--------------------------"
     if @keymap.save
       redirect_to keymap_path(@keymap), success: "Successfully Created!"
     else
