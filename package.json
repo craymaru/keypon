@@ -13,7 +13,7 @@
     "bootstrap-material-design": "^4.1.2",
     "bootstrap-tagsinput": "^0.7.1",
     "bootswatch": "^4.4.1",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "popper.js": "^1.16.1",
     "trix": "^1.0.0",
     "turbolinks": "^5.2.0",
