@@ -147,7 +147,7 @@ This application is created to record and share key bindings. I hope that this a
 * 従来の app/assets 以下の読み込みではなく `Rails 6` で標準化された `Webpacker` を採用して JavaScript、CSS、Static な Image をプロバイドしています。
 
 
-# 著作権 | Licenses
+# 著作権表記 | Licenses
 
 > Released under the MIT license
 > © 2020 Cray, TT / KEYPON
